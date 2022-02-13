@@ -6,7 +6,8 @@ import (
 )
 
 type Config struct {
-	Port int
+	LogFormat string
+	Server    Server
 }
 
 func New(configPath, configName string) (*Config, error) {

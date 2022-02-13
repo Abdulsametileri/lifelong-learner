@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/Abdulsametileri/lifelong-learner/internal/application"
 	"github.com/Abdulsametileri/lifelong-learner/internal/config"
 	"github.com/pkg/errors"
 	"log"
@@ -22,5 +23,10 @@ func run() error {
 	}
 	cfg.Print()
 
-	return nil
+	app, err := application.New(cfg, Version)
+	if err != nil {
+		return errors.Wrap(err, "error when creating application instance")
+	}
+
+	return app.Run()
 }
