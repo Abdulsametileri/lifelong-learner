@@ -77,7 +77,7 @@ linters:
     - goconst
     - gocritic
     - gocyclo
-    - gofmt
+    # - gofmt
     - goimports
     - golint
     # - gomnd

@@ -14,9 +14,10 @@ var vocabularyCmd = &cobra.Command{
 	},
 }
 
+//nolint:gochecknoinits
 func init() {
 	vocabularyCmd.Flags().StringVarP(&word, "word", "w", "", "name of the word you search for")
-	vocabularyCmd.MarkFlagRequired("word")
+	_ = vocabularyCmd.MarkFlagRequired("word")
 
 	rootCmd.AddCommand(vocabularyCmd)
 }

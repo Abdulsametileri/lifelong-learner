@@ -1,12 +1,14 @@
 package application
 
 import (
-	"github.com/Abdulsametileri/lifelong-learner/internal/config"
-	log "github.com/Abdulsametileri/lifelong-learner/pkg/log"
-	"github.com/Abdulsametileri/lifelong-learner/pkg/server"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/Abdulsametileri/lifelong-learner/internal/config"
+	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
+	log "github.com/Abdulsametileri/lifelong-learner/pkg/log"
+	"github.com/Abdulsametileri/lifelong-learner/pkg/server"
 )
 
 type Application struct {
@@ -16,7 +18,18 @@ type Application struct {
 
 func New(cfg *config.Config, version string) (*Application, error) {
 	appLogger := createLogger(cfg.LogFormat).With("version", version)
-	srv := server.New(cfg.Server, appLogger)
+
+	vocabularyClient, err := createVocabularyClient(cfg.Application.IsGoogleSheetClientEnabled)
+	if err != nil {
+		appLogger.Error(err)
+		os.Exit(1)
+	}
+	vocabularyService := vocabulary.NewService(vocabularyClient)
+	vocabularyHandler := vocabulary.NewHandler(vocabularyService)
+
+	srv := server.New(cfg.Server, appLogger, []server.RegisterRoutesFunc{
+		vocabularyHandler.RegisterRoutes,
+	})
 
 	return &Application{
 		server: srv,
@@ -48,4 +61,17 @@ func createLogger(logFormat string) log.Logger {
 		return log.NewDevelopment()
 	}
 	return log.New()
+}
+
+func createVocabularyClient(IsGoogleSheetClientEnabled bool) (vocabulary.Client, error) {
+	if IsGoogleSheetClientEnabled {
+		googleSheetsAPIClient, err := vocabulary.NewGoogleSheetClient(
+			os.Getenv("SHEETS_API_KEY"),
+			os.Getenv("SPREADSHEET_ID"),
+			false,
+		)
+		return googleSheetsAPIClient, err
+	}
+
+	return vocabulary.NewLocalFileClient()
 }

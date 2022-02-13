@@ -1,11 +1,12 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/application"
 	"github.com/Abdulsametileri/lifelong-learner/internal/config"
 	"github.com/pkg/errors"
-	"log"
-	"os"
 )
 
 var Version = "1.0.0"

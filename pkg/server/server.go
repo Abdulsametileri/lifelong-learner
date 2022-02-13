@@ -6,18 +6,24 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+type RegisterRoutesFunc func(app *fiber.App)
+
 type Server struct {
 	app    *fiber.App
 	config config.Server
 	logger log.Logger
 }
 
-func New(svcCfg config.Server, logger log.Logger) Server {
+func New(svcCfg config.Server, logger log.Logger, registerRoutesFunc []RegisterRoutesFunc) Server {
 	app := fiber.New(
 		fiber.Config{
 			DisableStartupMessage: true,
 		},
 	)
+
+	for _, registerRouteFunc := range registerRoutesFunc {
+		registerRouteFunc(app)
+	}
 
 	server := Server{app: app, config: svcCfg, logger: logger}
 
