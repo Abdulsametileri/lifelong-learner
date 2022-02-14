@@ -1,82 +1,17 @@
 [
   {
-    "word": "the luck of the draw",
-    "meaning": "the fact that chance decides somethings, in a way that you cannot control",
-    "sentence": "The company sent me to do a job. It was the luck of the draw."
-  },
-  {
-    "word": "just a hunch",
-    "meaning": "sadece bir önsezi",
+    "word": "I think aloud",
+    "meaning": "sesli düşünüyorum",
     "sentence": ""
-  },
-  {
-    "word": "besides",
-    "meaning": "in addition to somebody/something; apart from somebody/something",
-    "sentence": "We have lots of things in common besides music. Besides working as a doctor, he also writes novels in his spare time."
-  },
-  {
-    "word": "spare time",
-    "meaning": "available to do what you want with rather than work",
-    "sentence": "He's studying music in his spare time"
-  },
-  {
-    "word": "would you mind",
-    "meaning": "sakıncası yoksa",
-    "sentence": ""
-  },
-  {
-    "word": "shrug off",
-    "meaning": "to treat something as if it is not important",
-    "sentence": "Shrugging off her injury, she played on. He shrugged aside suggestions that he resign."
-  },
-  {
-    "word": "whats the point?",
-    "meaning": "amaç ne?",
-    "sentence": ""
-  },
-  {
-    "word": "as much as we can",
-    "meaning": "elimizden geldiğince",
-    "sentence": ""
-  },
-  {
-    "word": "resign",
-    "meaning": "to officially tell somebody that you are leaving your job, an organization, etc.",
-    "sentence": ""
-  },
-  {
-    "word": "feasible",
-    "meaning": "that is possible and likely to be achieved",
-    "sentence": "a feasible plan/suggestion/idea"
-  },
-  {
-    "word": "initiative (inişitiv)",
-    "meaning": "a new plan for dealing with a particular problem or for achieving a particular purpose, girişkenlik, girişim, ilk adım, insiyatif",
-    "sentence": ""
-  },
-  {
-    "word": "pull out all the stops",
-    "meaning": "to make the greatest effort possible to achieve something",
-    "sentence": ""
-  },
-  {
-    "word": "intuition",
-    "meaning": "the ability to know something by using your feelings rather than considering the facts",
-    "sentence": "He was guided by intuition and personal judgement."
-  },
-  {
-    "word": "hesitate",
-    "meaning": "hesitate to do something to be worried about doing something especially because you are not sure that it is right or appropriate",
-    "sentence": "She never hesitated to speak her mind."
-  },
-  {
-    "word": "mere",
-    "meaning": "used when you want to emphasize how small, unimportant, etc. somebody/something is",
-    "sentence": "It took her a mere 20 minutes to win."
   },
   {
     "word": "I try to explain the best I can",
     "meaning": "",
+    "sentence": ""
+  },
+  {
+    "word": "Now let's try making our own!",
+    "meaning": "Şimdi kendimiz yapmayı deneyelim.",
     "sentence": ""
   },
   {
@@ -85,18 +20,43 @@
     "sentence": ""
   },
   {
-    "word": "wholeheartedly",
-    "meaning": "içtenlikle",
-    "sentence": "I wholeheartedly agree"
+    "word": "a bunch of problems",
+    "meaning": "bir grup problemler",
+    "sentence": ""
   },
   {
-    "word": "shoulder",
-    "meaning": "omuzlamak",
-    "sentence": "if the developers shoulder the problem"
+    "word": "a sigh of relief",
+    "meaning": "oh, oh demek, oh çekmek",
+    "sentence": "I breathe a sigh of relief"
   },
   {
-    "word": "have a conversation",
-    "meaning": "",
+    "word": "achilles heel",
+    "meaning": "zaaf, zayıf nokta",
+    "sentence": "Sessions are the Achilles heel of every application."
+  },
+  {
+    "word": "adage",
+    "meaning": "a proverb or short statement expressing a general truth",
+    "sentence": "there’s an adage that if it compiles, it works"
+  },
+  {
+    "word": "all-time low",
+    "meaning": "tüm zamanların en düşük seviyesi",
+    "sentence": ""
+  },
+  {
+    "word": "alleviate (alivieyt)",
+    "meaning": "hafifletmek; to make something less severe",
+    "sentence": "A number of measures were taken to alleviate the problem."
+  },
+  {
+    "word": "antidote",
+    "meaning": "panzehir, ilaç, deva",
+    "sentence": "There is an antidote to this misuse of data."
+  },
+  {
+    "word": "append",
+    "meaning": "sonuna eklemek",
     "sentence": ""
   },
   {
@@ -105,589 +65,9 @@
     "sentence": "it sounds as though you had a good time."
   },
   {
-    "word": "fallacy (falisi)",
-    "meaning": "a false idea that many people believe is true, a false way of thinking about something",
-    "sentence": "it is a fallacy to say that the camera never lies. He detected the fallacy of her argument."
-  },
-  {
-    "word": "consolidate",
-    "meaning": "sağlamlaştırmak, pekiştirmek",
-    "sentence": "With this new movie he has consolidated his position as the country's leading director."
-  },
-  {
-    "word": "rip up sth",
-    "meaning": "to tear something into small pieces",
-    "sentence": "He ripped up the letter and threw it in the fire."
-  },
-  {
-    "word": "condense",
-    "meaning": "yoğunlaştırmak, özetlemek, kısaltmak. To put something such as a piece of writing into fewer words; to put a lot of information into a small space.",
-    "sentence": "The article was condensed into just two pages."
-  },
-  {
-    "word": "elicitation (elisiteyşın)",
-    "meaning": "the act of getting information or a reaction from somebody, often with difficulty",
+    "word": "as much as we can",
+    "meaning": "elimizden geldiğince",
     "sentence": ""
-  },
-  {
-    "word": "task force",
-    "meaning": "a group of people who are brought together to deal with a particular problem",
-    "sentence": "The government has set up a task force to improve standarts in schools."
-  },
-  {
-    "word": "comprise",
-    "meaning": "kapsamak, içermek, içine almak. to have somebody/something as parts or members",
-    "sentence": "a DVD box set comprising seasons 4 and 5"
-  },
-  {
-    "word": "bearing on sth",
-    "meaning": "the way in which something is related to something or influences it",
-    "sentence": "Recent events had no bearing on our decision."
-  },
-  {
-    "word": "go astray",
-    "meaning": "to become lost; to be stolen",
-    "sentence": "Several letters went astray or were not delivered; We locked up our valueables so they would not go astray."
-  },
-  {
-    "word": "emphasize",
-    "meaning": "to give special importance to something; vurgulamak",
-    "sentence": "His speech emphasized the importance of attracting industry to the town"
-  },
-  {
-    "word": "resemble (rizımbıl)",
-    "meaning": "to look like or be similar to another person or thing; benzemek, andırmak",
-    "sentence": "She closely resembles her sister."
-  },
-  {
-    "word": "strive(sıtrayv) after/towards something",
-    "meaning": "to try very hard to achieve something;",
-    "sentence": "They were always striving towards perfection."
-  },
-  {
-    "word": "entice (intayz)",
-    "meaning": "to persuade somebody/something to go somewhere or to do something, usually by offering them something; aklını çelmek",
-    "sentence": "this book might entice you"
-  },
-  {
-    "word": "slashdot",
-    "meaning": "bir siteye çok sayıda ziyaretçinin aynı anda bağlanması sonrası sitenin çökmesi",
-    "sentence": ""
-  },
-  {
-    "word": "in the blink of an eye",
-    "meaning": "göz açıp kapayıncaya kadar",
-    "sentence": ""
-  },
-  {
-    "word": "flash mob",
-    "meaning": "birden kalabalıklaşan insan grubu",
-    "sentence": ""
-  },
-  {
-    "word": "be on the verge of something",
-    "meaning": "eşiğinde olmak, üzere olmak",
-    "sentence": "a complex system on the verge of the failure "
-  },
-  {
-    "word": "reinforce",
-    "meaning": "pekiştirmek, sağlamlaştırmak; to make a feeling, an idea, etc. stronger",
-    "sentence": "The antipatterns have a tendency to reinforce each other"
-  },
-  {
-    "word": "alleviate (alivieyt)",
-    "meaning": "hafifletmek; to make something less severe",
-    "sentence": "A number of measures were taken to alleviate the problem."
-  },
-  {
-    "word": "tip over",
-    "meaning": "devrilmek; to fall or turn over; to make something do this",
-    "sentence": "The mug tipped over, spilling hot coffee everywhere."
-  },
-  {
-    "word": "sweat (swet)",
-    "meaning": "terlemek, ter",
-    "sentence": "A lot of sweat has gone into producing this."
-  },
-  {
-    "word": "weak spot (viyık sıpat)",
-    "meaning": "zayıf nokta",
-    "sentence": ""
-  },
-  {
-    "word": "vastly",
-    "meaning": "genişce, çok",
-    "sentence": "you vastly higher capacity"
-  },
-  {
-    "word": "oppose",
-    "meaning": "to disagree strongly with somebody's plan, policy, etc. and try to change it or prevent it from succeding",
-    "sentence": "I oppose anyone rolling their own connection pool class"
-  },
-  {
-    "word": "kludge (kuluç)",
-    "meaning": "a solution to a problem that has been quickly and badly put together; (hızlı ve kötü bir çözüm yapmak)",
-    "sentence": ""
-  },
-  {
-    "word": "proximate cause",
-    "meaning": "en yakın sebep",
-    "sentence": "The blocked threads antipattern is the proximate cause of most failures."
-  },
-  {
-    "word": "scrutinize (sukrutınayz)",
-    "meaning": "to look at or examine somebody/something carefully",
-    "sentence": "The statement was carefully scrutinized before publication"
-  },
-  {
-    "word": "lurk / lurk in",
-    "meaning": "gizlenmek / -de gizli olmak, -de saklı olmak",
-    "sentence": "All manner of problems can lurk in the shadows of third-party code."
-  },
-  {
-    "word": "have plenty of time",
-    "meaning": "bolca vakti olmak",
-    "sentence": ""
-  },
-  {
-    "word": "cahoot",
-    "meaning": "iş birliği",
-    "sentence": "The trade magazines are in cahoot with the vendors."
-  },
-  {
-    "word": "manifest",
-    "meaning": "açıkca göstermek, beyan etmek",
-    "sentence": "Memory leaks often manifest"
-  },
-  {
-    "word": "at the risk of doing sth",
-    "meaning": "göze alarak, mek pahasına, pahasına",
-    "sentence": "At the risk of showing my ignorance, how exactly does the internet work?"
-  },
-  {
-    "word": "devoid of",
-    "meaning": "yoksun, mahrum kalmak",
-    "sentence": "Vendor-provided client libraries are notoriously devoid of timeouts"
-  },
-  {
-    "word": "beware of",
-    "meaning": "çekinmek, dikkat etmek; if you tell somebody to beware, you are warning them that somebody/something is dangerous and that they should be careful",
-    "sentence": "Motorists have been warned to beware of icy roads."
-  },
-  {
-    "word": "circumvent",
-    "meaning": "önlemek",
-    "sentence": "You can apply the same technique to software by wrapping dangerous operations with a component that can circumvent calls when the sys- tem is not healthy."
-  },
-  {
-    "word": "be cautious",
-    "meaning": "sakınmak, tedbirli olmak",
-    "sentence": ""
-  },
-  {
-    "word": "achilles heel",
-    "meaning": "zaaf, zayıf nokta",
-    "sentence": "Sessions are the Achilles heel of every application."
-  },
-  {
-    "word": "contention",
-    "meaning": "çekişme, tartışma",
-    "sentence": "The bottleneck arises when there is contention for the resource"
-  },
-  {
-    "word": "sheer number of",
-    "meaning": "çok sayıda",
-    "sentence": "because of the sheer number of strings involved."
-  },
-  {
-    "word": "untangle",
-    "meaning": "karışık bir şeyi açmak, düğümü çözmek",
-    "sentence": "you won't be spending days untangling your code you wrote only 6 months ago."
-  },
-  {
-    "word": "utmost",
-    "meaning": "son derece",
-    "sentence": "losing time has the utmost severity"
-  },
-  {
-    "word": "get tangled up in something",
-    "meaning": "kötü bir duruma bulaşmış olmak",
-    "sentence": "if your code gets tangled up in them"
-  },
-  {
-    "word": "cater to",
-    "meaning": "birinin ihtiyacını karşılamak, ihtiyacı karşılamak",
-    "sentence": "Customers have different needs, which might force you to cater to different needs, unnecessarily."
-  },
-  {
-    "word": "chew someone out",
-    "meaning": "birini fırçalamak, birisini azarlamak",
-    "sentence": "I hate vague requests to meet. I only do that when I’m trying to schedule a time to chew someone out. Or fire them."
-  },
-  {
-    "word": "go ballistic",
-    "meaning": "çılgına dönmek, öfkeden çıldırmak",
-    "sentence": "they will go ballistic"
-  },
-  {
-    "word": "do more",
-    "meaning": "daha fazlasını yapmak",
-    "sentence": ""
-  },
-  {
-    "word": "effective as of",
-    "meaning": "-den geçerli olmak üzere",
-    "sentence": "Effective as of this morning, Luke and Damon are no longer with the company"
-  },
-  {
-    "word": "break out in a cold sweat",
-    "meaning": "As ı break out in a cold sweat, I know I will never accept this promotion",
-    "sentence": ""
-  },
-  {
-    "word": "screwup",
-    "meaning": "hata, yanlış",
-    "sentence": "to make sure something doesn't get screwed up"
-  },
-  {
-    "word": "a sigh of relief",
-    "meaning": "oh, oh demek, oh çekmek",
-    "sentence": "I breathe a sigh of relief"
-  },
-  {
-    "word": "interrogate",
-    "meaning": "sorgulamak, ifadesini almak",
-    "sentence": "Wes and Patty argue over who will help interrogate John"
-  },
-  {
-    "word": "drill into",
-    "meaning": "ayrıntıya git",
-    "sentence": "we begin to drill into the details of each component"
-  },
-  {
-    "word": "urge to be",
-    "meaning": "teşvik etmek",
-    "sentence": "the second practice promoting simplicity is to deliberately avoid the urge to overengineer"
-  },
-  {
-    "word": "jeopardize (cepidayz)",
-    "meaning": "tehlikeye atmak, tehlikeye sokmak",
-    "sentence": "its jeopardizing the company"
-  },
-  {
-    "word": "rollout",
-    "meaning": "yeni çıkan bir ürün veya hizmetin ilk kez görücüye, müşteriye çıkması",
-    "sentence": ""
-  },
-  {
-    "word": "longevity (lançevidi)",
-    "meaning": "uzun ömürlü olma, ",
-    "sentence": "Three main factors affect your cache hit ratio: data set size, space and longevity."
-  },
-  {
-    "word": "gut feeling",
-    "meaning": "iç güdüsel duygu",
-    "sentence": "people do it based solely on their personal gut feeling rather than past experience or actual data"
-  },
-  {
-    "word": "biases (bayasıs)",
-    "meaning": "önyargılar",
-    "sentence": "Practicing self-awareness and watching out for these biases should help you reduce the amount of unnecessary work."
-  },
-  {
-    "word": "perseverance",
-    "meaning": "sebat, azim, sabır, tahammül",
-    "sentence": "hard work and perseverance don't lead to success."
-  },
-  {
-    "word": "odds",
-    "meaning": "ihtimal",
-    "sentence": "increase their odds of building a successful startup"
-  },
-  {
-    "word": "connote (kenote)",
-    "meaning": "demeye gelmek, ifade etmek, delalet etmek",
-    "sentence": "The word instutiton connotes bureaucracy, process, even lethargy"
-  },
-  {
-    "word": "retrospect (redırspekt)",
-    "meaning": "geçmişe bakış",
-    "sentence": "In retrospect, one good decision we made was to set clear revenue targets for those early days."
-  },
-  {
-    "word": "out of desperation",
-    "meaning": "çaresizlik",
-    "sentence": "out of desperation, we decided to talk to some potential customers."
-  },
-  {
-    "word": "dawn on",
-    "meaning": "kavramak, anlaşılmak, dank etmez",
-    "sentence": "it started to dawn on us that the IM add-on concept was fundementally flawed."
-  },
-  {
-    "word": "attest",
-    "meaning": "onaylamak, tasdik etmek, beyan etmek",
-    "sentence": "As I can attest, anybody who fails in a startup can claim that he or she has learned a lot from the experience."
-  },
-  {
-    "word": "the moral of the story",
-    "meaning": "kıssadan hisse",
-    "sentence": "they are not the moral of the story."
-  },
-  {
-    "word": "pertinent (pörınt)",
-    "meaning": "ilgili, alakalı, münasip",
-    "sentence": "the more pertinent questions are .."
-  },
-  {
-    "word": "reconceive (rikonsiv)",
-    "meaning": "yeniden değerlendirmek, yeniden tasarlamak",
-    "sentence": "The Lean Startup methodology reconceives a startup's efforts as experiments that"
-  },
-  {
-    "word": "envision (invijın)",
-    "meaning": "tasavvur etmek, düşünmek",
-    "sentence": "He envisioned a new and superior retail experience."
-  },
-  {
-    "word": "insisting on",
-    "meaning": "ısrar etmek, direnmek, dayatmak",
-    "sentence": "Swinmurn could have waited a long time, insisting on testing his complete vision complete with warehouses"
-  },
-  {
-    "word": "in accordance with",
-    "meaning": "göre, uygun olarak, gereğince",
-    "sentence": "in accordance with traditional management practices,"
-  },
-  {
-    "word": "be conducted",
-    "meaning": "yönetilmek, yürütülmek",
-    "sentence": ""
-  },
-  {
-    "word": "hindsight",
-    "meaning": "önemini sonradan anlama, geç anlama",
-    "sentence": "Its obvious in hindsight"
-  },
-  {
-    "word": "gauge",
-    "meaning": "ölçmek",
-    "sentence": "we also need to get it in front of potential customers to gauge theiir reactions."
-  },
-  {
-    "word": "capital efficiency",
-    "meaning": "sermaye verimliliği",
-    "sentence": "The Lean Startup method builds capital-efficient companies"
-  },
-  {
-    "word": "venture",
-    "meaning": "girişim, tehlikeye atmak, riske atmak",
-    "sentence": "money from venture investors"
-  },
-  {
-    "word": "hockey stick growth",
-    "meaning": "hızlı büyüme, üstel büyüme",
-    "sentence": ""
-  },
-  {
-    "word": "early adopters",
-    "meaning": "erken benimseyenler",
-    "sentence": ""
-  },
-  {
-    "word": "state of affairs",
-    "meaning": "gidişat, şartlar, durum, gelinen nokta",
-    "sentence": ""
-  },
-  {
-    "word": "thrill",
-    "meaning": "heyecan, heyecanlandırmak, etkilemek",
-    "sentence": "In consumer products, it’s often the thrill of being the frst one on the block to show off a new basketball shoe, music player, or cool phone"
-  },
-  {
-    "word": "venture capital",
-    "meaning": "risk sermayesi",
-    "sentence": "he tried to raise venture capital"
-  },
-  {
-    "word": "elaborate",
-    "meaning": "ayrıntıyla donatmak, detaylandırmak, özenle hazırlanmış",
-    "sentence": "this is an elaborate service"
-  },
-  {
-    "word": "take for granted",
-    "meaning": "düzenlenmiş saymak, kanıksamak, kıymet bilmemek",
-    "sentence": "but that is because accounting is something that has become taken for granted."
-  },
-  {
-    "word": "revise",
-    "meaning": "gözden geçirerek düzeltmek, değiştirmek (fikir, plan, düşünme)",
-    "sentence": "As a result, they have the opportunity to use cutting-edge experimental techniques as they constantly revise their product."
-  },
-  {
-    "word": "recede into the distance",
-    "meaning": "uzaklaşmak",
-    "sentence": "A startup that fails to do so will see that ideal recede ever farther into the distance."
-  },
-  {
-    "word": "cultivate",
-    "meaning": "yetiştirmek, gayret etmek, beslemek",
-    "sentence": "This book is the result of a quest. A quest to uncover what habits can be cultivated to help become a better software engineer."
-  },
-  {
-    "word": "fear of missing out (fomo)",
-    "meaning": "fırsatı kaçırma korkusu",
-    "sentence": ""
-  },
-  {
-    "word": "make a fuss about",
-    "meaning": "aşırı kaygı duymak, mesele yapmak, son derece endişelenmek",
-    "sentence": ""
-  },
-  {
-    "word": "modus operandi",
-    "meaning": "izlenen yöntem, icra tarzı",
-    "sentence": "ntensity is a tool that you can use on special occasions, but if that’s your modus operandi, you won’t be able to sustain it for a long time."
-  },
-  {
-    "word": "inadequate",
-    "meaning": "yetersiz, liyakatsiz",
-    "sentence": ""
-  },
-  {
-    "word": "reams of",
-    "meaning": "bir sürü",
-    "sentence": "Were there seasonal factors that might be skewing the data? Finding these answers would have required parsing reams and reams of data."
-  },
-  {
-    "word": "antidote",
-    "meaning": "panzehir, ilaç, deva",
-    "sentence": "There is an antidote to this misuse of data."
-  },
-  {
-    "word": "crank out",
-    "meaning": "kalitesine bakmaksızın çok sayıda üretmek",
-    "sentence": "Startup productivity is not about cranking out more widgets or features."
-  },
-  {
-    "word": "leave no room for doubt",
-    "meaning": "şüpheye yer bırakmamak",
-    "sentence": "When you see a startup that has found a fit with a large market, it's exhilarating. It leaves no room for doubt."
-  },
-  {
-    "word": "back and forth",
-    "meaning": "ileri geri, aşağı yukarı",
-    "sentence": ""
-  },
-  {
-    "word": "go awry (go ray)",
-    "meaning": "ters gitmek",
-    "sentence": "When the Five Whys approach goes awry, I call it the Five Blames."
-  },
-  {
-    "word": "in a bind",
-    "meaning": "darda, sıkıntıda",
-    "sentence": "Greg was in a bind"
-  },
-  {
-    "word": "self-reproach",
-    "meaning": "kendini suçlama",
-    "sentence": "There is a luxury in self-reproach. When we blame ourselves we feel no one else has a right to blame us."
-  },
-  {
-    "word": "subtle (satıl)",
-    "meaning": "hemen göze çarpmayan, ince",
-    "sentence": "This is a relatively subtle distinction, but its one that will have profound implications for the developers."
-  },
-  {
-    "word": "invaluable",
-    "meaning": "paha biçilemez",
-    "sentence": "Documenting the reasons behind requirements will give your team invaluable information when making daily implementation decisions."
-  },
-  {
-    "word": "preconceived notion",
-    "meaning": "önyargılı fikir",
-    "sentence": "Some constraints are absolute; others are merely preconceived notion"
-  },
-  {
-    "word": "share a trait",
-    "meaning": "bir özelliği paylaşmak",
-    "sentence": "Great performers share a trait; they know when to start and when to wait."
-  },
-  {
-    "word": "proof of concept",
-    "meaning": "kavramın ispatı",
-    "sentence": "Choose an area that you feel will be difficult and begin producing some kind of proof of concept."
-  },
-  {
-    "word": "ubiquitous",
-    "meaning": "her yerde birden bulunan",
-    "sentence": "ubiquitous automation"
-  },
-  {
-    "word": "hold accountable",
-    "meaning": "sorumlu tutmak",
-    "sentence": "how to hold entrepreneurial managers accountable"
-  },
-  {
-    "word": "gather to make decision",
-    "meaning": "karar vermek için toplanmak",
-    "sentence": ""
-  },
-  {
-    "word": "conduct an experiment",
-    "meaning": "bir deney yapmak",
-    "sentence": "it had tried to conduct an experiment on price."
-  },
-  {
-    "word": "comprehend (komprihend)",
-    "meaning": "anlamak, kavramak",
-    "sentence": "It was a lot of data to try to comprehend"
-  },
-  {
-    "word": "chime in with",
-    "meaning": "araya girmek, lafa girmek",
-    "sentence": "Other departments would chime in with alternative interpretations that supported their positions, and so on."
-  },
-  {
-    "word": "debate the data",
-    "meaning": "verileri tartışmak",
-    "sentence": "It seemed wasteful to me how much of the meeting had been It seemed wasteful to me how much of the meeting had been spent debating the data"
-  },
-  {
-    "word": "departmental feud",
-    "meaning": "departman kavgası",
-    "sentence": "at the heart of this departmental feud"
-  },
-  {
-    "word": "in charge of",
-    "meaning": "sorumluluğunda",
-    "sentence": "The team in charge of growing the customer segment wanted to run experiments with a lower price structure."
-  },
-  {
-    "word": "to reap the rewards of their skills",
-    "meaning": "becerilerinin meyvelerini toplamak için",
-    "sentence": "anagers who can lead teams by using the Lean Startup methodology should not have to leave the company to reap the rewards of their skills"
-  },
-  {
-    "word": "sight of",
-    "meaning": "görüş",
-    "sentence": "we lose sight of real goal innovation."
-  },
-  {
-    "word": "rundown",
-    "meaning": "özet, kısa bilgi",
-    "sentence": "Kirsten gives us a rundown of the most critical Phoenix project tasks at the beginning of each day."
-  },
-  {
-    "word": "pondering",
-    "meaning": "düşünüp taşınmak, kafa yormak",
-    "sentence": "I’m pondering how we can mitigate some of this risk when I hear Kirsten call Brent’s name for the third time."
-  },
-  {
-    "word": "seek to understand",
-    "meaning": "anlamaya çalışmak",
-    "sentence": "I remind myself that my goal is to observe and seek to understand."
   },
   {
     "word": "aspire to be",
@@ -695,84 +75,99 @@
     "sentence": "aspire to be Brent"
   },
   {
-    "word": "relieve",
-    "meaning": "rahatlamak",
-    "sentence": "I relieved"
-  },
-  {
-    "word": "I think aloud",
-    "meaning": "sesli düşünüyorum",
-    "sentence": ""
-  },
-  {
-    "word": "grok",
-    "meaning": "bir şeyin özünü kavramak",
-    "sentence": "If they can't grok it, then maybe we have a skills problem in those teams."
-  },
-  {
-    "word": "hoard knowledge",
-    "meaning": "bilgi toplamak",
-    "sentence": ""
-  },
-  {
-    "word": "disseminate",
-    "meaning": "yaymak",
-    "sentence": "we figure out how to disseminate all the Brent knowledge."
-  },
-  {
-    "word": "poring through",
-    "meaning": "göz atmak",
-    "sentence": "William’s engineers started poring through the developer’s laptop"
-  },
-  {
-    "word": "the tip of the iceberg",
-    "meaning": "buzdağının görünen kısmı",
-    "sentence": "that’s only the tip of the iceberg"
-  },
-  {
-    "word": "the sheer size of the system",
-    "meaning": "sistemin büyüklüğü",
-    "sentence": "Most of these differences are due to the sheer size of the system itself."
-  },
-  {
-    "word": "rectify",
-    "meaning": "düzeltmek",
-    "sentence": "administrator trying to rectify the situation might reboot it"
-  },
-  {
-    "word": "fictious",
-    "meaning": "farazi",
-    "sentence": "For example, imagine (and these numbers are completely fictious) Google had 20 POPs."
-  },
-  {
-    "word": "liability",
-    "meaning": "yükümlülük",
-    "sentence": "Any value or liability within our products is a result of human endeavors."
-  },
-  {
-    "word": "endeavor",
-    "meaning": "çabalamak, çaba",
-    "sentence": "we as technologists and engineers overlook when striving to create scalable solutions or solve problems related to scalability."
-  },
-  {
-    "word": "striving for",
-    "meaning": "çabalamak",
-    "sentence": "The code review that I had felt so ready for came as a rude awakening"
-  },
-  {
-    "word": "rude awakening (ruud aveykining)",
-    "meaning": "hayal kırıklığı",
-    "sentence": ""
-  },
-  {
-    "word": "prevalence",
-    "meaning": "yaygınlık",
-    "sentence": "A prevalence of noisy comments and incorrect comments in a codebase encourages programmers to ignore all comments, either by skipping past them or by taking active measures to hide them."
+    "word": "at first glance",
+    "meaning": "ilk bakışta",
+    "sentence": "At first glance, this sounds more like a virtue than a pitfall."
   },
   {
     "word": "at the earliest opportunity",
     "meaning": "ilk fırsatta",
     "sentence": "Deal with problems at the earliest opportunity. Keep a short account."
+  },
+  {
+    "word": "at the risk of doing sth",
+    "meaning": "göze alarak, mek pahasına, pahasına",
+    "sentence": "At the risk of showing my ignorance, how exactly does the internet work?"
+  },
+  {
+    "word": "attest",
+    "meaning": "onaylamak, tasdik etmek, beyan etmek",
+    "sentence": "As I can attest, anybody who fails in a startup can claim that he or she has learned a lot from the experience."
+  },
+  {
+    "word": "back and forth",
+    "meaning": "ileri geri, aşağı yukarı",
+    "sentence": ""
+  },
+  {
+    "word": "based on my own life and experience",
+    "meaning": "",
+    "sentence": ""
+  },
+  {
+    "word": "be cautious",
+    "meaning": "sakınmak, tedbirli olmak",
+    "sentence": ""
+  },
+  {
+    "word": "be conducted",
+    "meaning": "yönetilmek, yürütülmek",
+    "sentence": ""
+  },
+  {
+    "word": "be hot on somebody's trail",
+    "meaning": "ensesinde olmak",
+    "sentence": "John tells me that we're hot on the trail of understanding how we can really help the business win."
+  },
+  {
+    "word": "be marginalized",
+    "meaning": "dışlanmak, kenara itilmek",
+    "sentence": "No wonder you’ve been marginalized!"
+  },
+  {
+    "word": "be on the verge of something",
+    "meaning": "eşiğinde olmak, üzere olmak",
+    "sentence": "a complex system on the verge of the failure "
+  },
+  {
+    "word": "bear with me",
+    "meaning": "benimle kal, benimle birlikte ol",
+    "sentence": "Pretty cool, huh? Yeah, I know it's not but bear with me"
+  },
+  {
+    "word": "bearing on sth",
+    "meaning": "the way in which something is related to something or influences it",
+    "sentence": "Recent events had no bearing on our decision."
+  },
+  {
+    "word": "bemused (bimüyzt)",
+    "meaning": "showing that you are confused and unable to think clearly",
+    "sentence": "Sarah looked totally bemused."
+  },
+  {
+    "word": "besides",
+    "meaning": "in addition to somebody/something; apart from somebody/something",
+    "sentence": "We have lots of things in common besides music. Besides working as a doctor, he also writes novels in his spare time."
+  },
+  {
+    "word": "beware of",
+    "meaning": "çekinmek, dikkat etmek; if you tell somebody to beware, you are warning them that somebody/something is dangerous and that they should be careful",
+    "sentence": "Motorists have been warned to beware of icy roads."
+  },
+  {
+    "word": "biases (bayasıs)",
+    "meaning": "önyargılar",
+    "sentence": "Practicing self-awareness and watching out for these biases should help you reduce the amount of unnecessary work."
+  },
+  {
+    "word": "break out in a cold sweat",
+    "meaning": "As ı break out in a cold sweat, I know I will never accept this promotion",
+    "sentence": ""
+  },
+  {
+    "word": "breakthrough",
+    "meaning": "ilerleme, atılım, buluş",
+    "sentence": "I thought all our recent breakthroughs would solve these due-date performance issues."
   },
   {
     "word": "by dint of something/of doing something",
@@ -785,54 +180,44 @@
     "sentence": "The load was lifted by means of a crane."
   },
   {
-    "word": "eschew (aşıvf)",
-    "meaning": "kaçınmak, sakınmak",
-    "sentence": "So can we eschew shared memory?"
+    "word": "cahoot",
+    "meaning": "iş birliği",
+    "sentence": "The trade magazines are in cahoot with the vendors."
   },
   {
-    "word": "frown upon",
-    "meaning": "uygun görmemek, razı olmamak",
-    "sentence": "Why is reinventing the wheel so frowned upon?"
+    "word": "capital efficiency",
+    "meaning": "sermaye verimliliği",
+    "sentence": "The Lean Startup method builds capital-efficient companies"
   },
   {
-    "word": "shortcomings",
-    "meaning": "eksiklikler, eksik yönleri",
-    "sentence": "Some of these shortcomings can be overcome by introducing additional mechanisms."
+    "word": "cater to",
+    "meaning": "birinin ihtiyacını karşılamak, ihtiyacı karşılamak",
+    "sentence": "Customers have different needs, which might force you to cater to different needs, unnecessarily."
   },
   {
-    "word": "at first glance",
-    "meaning": "ilk bakışta",
-    "sentence": "At first glance, this sounds more like a virtue than a pitfall."
+    "word": "chances are",
+    "meaning": "çok olasıdır ki, muhtemelen",
+    "sentence": "If you're reading this, chances are you want to learn Haskell."
   },
   {
-    "word": "adage",
-    "meaning": "a proverb or short statement expressing a general truth",
-    "sentence": "there’s an adage that if it compiles, it works"
+    "word": "chap one's hide",
+    "meaning": "canını sıkmak, kızdırmak, sinirlendirmek",
+    "sentence": "You know what chaps my hide?"
   },
   {
-    "word": "bemused (bimüyzt)",
-    "meaning": "showing that you are confused and unable to think clearly",
-    "sentence": "Sarah looked totally bemused."
+    "word": "chew someone out",
+    "meaning": "birini fırçalamak, birisini azarlamak",
+    "sentence": "I hate vague requests to meet. I only do that when I’m trying to schedule a time to chew someone out. Or fire them."
   },
   {
-    "word": "insist ",
-    "meaning": "ısrar etmek",
-    "sentence": "I didn't really want to go but he insisted."
+    "word": "chime in with",
+    "meaning": "araya girmek, lafa girmek",
+    "sentence": "Other departments would chime in with alternative interpretations that supported their positions, and so on."
   },
   {
-    "word": "tuition",
-    "meaning": "harç",
-    "sentence": "My parents don’t have money to pay tuition"
-  },
-  {
-    "word": "setback",
-    "meaning": "aksilik",
-    "sentence": "We had a big setback"
-  },
-  {
-    "word": "sort of",
-    "meaning": "çeşit, tür",
-    "sentence": ""
+    "word": "circumvent",
+    "meaning": "önlemek",
+    "sentence": "You can apply the same technique to software by wrapping dangerous operations with a component that can circumvent calls when the sys- tem is not healthy."
   },
   {
     "word": "come down on (someone or something)",
@@ -840,99 +225,79 @@
     "sentence": "“John, are you coming down with something? You don’t look so hot,”"
   },
   {
-    "word": "political capital",
-    "meaning": "siyasi sermaye",
-    "sentence": "“Do you know how much political capital I’ve spent over the last two years, trying to get everyone to do the right thing?"
-  },
-  {
-    "word": "sneer at",
-    "meaning": "küçümsemek",
-    "sentence": "When I don’t say anything, he just sneers at me."
-  },
-  {
-    "word": "genuine (ceniyın)",
-    "meaning": "özgün, gerçek, hakiki",
-    "sentence": "I look at him with genuine surprise."
-  },
-  {
-    "word": "intimidate into",
-    "meaning": "gözünü korkutmak",
-    "sentence": "They were accused of intimidating people into voting for them."
-  },
-  {
-    "word": "hatred",
-    "meaning": "nefret, düşmanlık",
-    "sentence": "He’s staring at Erik with an expression of intense hatred on his face"
-  },
-  {
-    "word": "outrage (autreyç)",
-    "meaning": "zedelemek (gurur), hakaret etmek",
-    "sentence": "John is shaking with outrage."
-  },
-  {
-    "word": "minutia",
-    "meaning": "küçük detaylar",
-    "sentence": "irrelevant technical minutia"
-  },
-  {
-    "word": "be marginalized",
-    "meaning": "dışlanmak, kenara itilmek",
-    "sentence": "No wonder you’ve been marginalized!"
-  },
-  {
-    "word": "resignation letter",
-    "meaning": "istifa mektubu",
-    "sentence": ""
-  },
-  {
-    "word": "eager to show something",
-    "meaning": "bir şey göstermeye istekli olmak",
-    "sentence": "she asks, obviously eager to show me something."
-  },
-  {
-    "word": "reconcile (rekonsayıl)",
-    "meaning": "uzlaştırmak, barıştırmak",
-    "sentence": "we never reconciled the business and IT projects with each other."
-  },
-  {
-    "word": "pressure",
-    "meaning": "basınç, baskı, zorlamak",
-    "sentence": "On top of that, several other of my group’s critical tasks are late, put- ting even more pressure on the deadline"
-  },
-  {
-    "word": "breakthrough",
-    "meaning": "ilerleme, atılım, buluş",
-    "sentence": "I thought all our recent breakthroughs would solve these due-date performance issues."
-  },
-  {
-    "word": "micromanage",
-    "meaning": "en ufak ayrıntısına kadar incelemek/kontrol etmek",
-    "sentence": ""
-  },
-  {
-    "word": "held responsible",
-    "meaning": "accountable",
-    "sentence": "For each of these initiatives and mea- surements, who are the managers held responsible and accountable?"
-  },
-  {
-    "word": "stuck in the muddle",
-    "meaning": "belaya batmak, çamura saplanmak",
-    "sentence": "“Stay focused and get Phoenix working. Without it, we are stuck in the mud.”"
-  },
-  {
-    "word": "regulations",
-    "meaning": "yönetmelik, talimatname, düzenleme",
-    "sentence": "compliance with laws and regulations"
-  },
-  {
     "word": "compliance",
     "meaning": "riayet, uyma, boyun eğme",
     "sentence": ""
   },
   {
-    "word": "well-deserved reputation",
-    "meaning": "hak edilmiş itibar, ün, şöhret",
+    "word": "comprehend (komprihend)",
+    "meaning": "anlamak, kavramak",
+    "sentence": "It was a lot of data to try to comprehend"
+  },
+  {
+    "word": "comprise",
+    "meaning": "kapsamak, içermek, içine almak. to have somebody/something as parts or members",
+    "sentence": "a DVD box set comprising seasons 4 and 5"
+  },
+  {
+    "word": "condense",
+    "meaning": "yoğunlaştırmak, özetlemek, kısaltmak. To put something such as a piece of writing into fewer words; to put a lot of information into a small space.",
+    "sentence": "The article was condensed into just two pages."
+  },
+  {
+    "word": "conduct an experiment",
+    "meaning": "bir deney yapmak",
+    "sentence": "it had tried to conduct an experiment on price."
+  },
+  {
+    "word": "connote (kenote)",
+    "meaning": "demeye gelmek, ifade etmek, delalet etmek",
+    "sentence": "The word instutiton connotes bureaucracy, process, even lethargy"
+  },
+  {
+    "word": "consolidate",
+    "meaning": "sağlamlaştırmak, pekiştirmek",
+    "sentence": "With this new movie he has consolidated his position as the country's leading director."
+  },
+  {
+    "word": "contagious",
+    "meaning": "bulaşıcı, salgın",
     "sentence": ""
+  },
+  {
+    "word": "contention",
+    "meaning": "çekişme, tartışma",
+    "sentence": "The bottleneck arises when there is contention for the resource"
+  },
+  {
+    "word": "countermeasures",
+    "meaning": "önlemler",
+    "sentence": "we’ll write down the countermeasures to prevent those bad things from happening"
+  },
+  {
+    "word": "crank out",
+    "meaning": "kalitesine bakmaksızın çok sayıda üretmek",
+    "sentence": "Startup productivity is not about cranking out more widgets or features."
+  },
+  {
+    "word": "cultivate",
+    "meaning": "yetiştirmek, gayret etmek, beslemek",
+    "sentence": "This book is the result of a quest. A quest to uncover what habits can be cultivated to help become a better software engineer."
+  },
+  {
+    "word": "dawn on",
+    "meaning": "kavramak, anlaşılmak, dank etmez",
+    "sentence": "it started to dawn on us that the IM add-on concept was fundementally flawed."
+  },
+  {
+    "word": "dead center",
+    "meaning": "bir şemanın tam ortası gibi düşün",
+    "sentence": "Dead center in the Lean Canvas is a box for your UVP."
+  },
+  {
+    "word": "debate the data",
+    "meaning": "verileri tartışmak",
+    "sentence": "It seemed wasteful to me how much of the meeting had been It seemed wasteful to me how much of the meeting had been spent debating the data"
   },
   {
     "word": "demeanor (demeynır)",
@@ -945,74 +310,84 @@
     "sentence": "It demoralizes my team, and my top performers are quitting in droves."
   },
   {
-    "word": "chap one's hide",
-    "meaning": "canını sıkmak, kızdırmak, sinirlendirmek",
-    "sentence": "You know what chaps my hide?"
+    "word": "departmental feud",
+    "meaning": "departman kavgası",
+    "sentence": "at the heart of this departmental feud"
   },
   {
-    "word": "countermeasures",
-    "meaning": "önlemler",
-    "sentence": "we’ll write down the countermeasures to prevent those bad things from happening"
+    "word": "devoid of",
+    "meaning": "yoksun, mahrum kalmak",
+    "sentence": "Vendor-provided client libraries are notoriously devoid of timeouts"
   },
   {
-    "word": "roll up one's sleeves",
-    "meaning": "kolları sıvamak, paçaları sıvamak",
-    "sentence": "We roll up our sleeves and get to work."
+    "word": "disseminate",
+    "meaning": "yaymak",
+    "sentence": "we figure out how to disseminate all the Brent knowledge."
   },
   {
-    "word": "rehearse",
-    "meaning": "prova yapmak",
-    "sentence": "I’ve rehearsed so many times with the team"
-  },
-  {
-    "word": "be hot on somebody's trail",
-    "meaning": "ensesinde olmak",
-    "sentence": "John tells me that we're hot on the trail of understanding how we can really help the business win."
-  },
-  {
-    "word": "impromptu",
-    "meaning": "hazırlıksız",
-    "sentence": "I invite Wes and Patty to the impromptu meeting but only Patty can make it."
-  },
-  {
-    "word": "slip through the cracks",
-    "meaning": "gözden kaçmak, ihmal edilmek",
-    "sentence": "It was a database schema change that slipped through the cracks"
-  },
-  {
-    "word": "out of the woods",
-    "meaning": "artık tehlikede değil, kritik safhayı atlatmış",
-    "sentence": "When we’re out of the woods,” I say, “we’ve got to figure out how to prevent this from happening again."
-  },
-  {
-    "word": "no argument there",
-    "meaning": "haklısın",
+    "word": "do more",
+    "meaning": "daha fazlasını yapmak",
     "sentence": ""
   },
   {
-    "word": "mull over",
-    "meaning": "düşünüp taşınmak, üzerinde düşünmek, kafa yormak",
-    "sentence": "I’m still mulling over Erik’s cryptic comments."
+    "word": "drill into",
+    "meaning": "ayrıntıya git",
+    "sentence": "we begin to drill into the details of each component"
   },
   {
-    "word": "go through the roof",
-    "meaning": "(fiyatlar, satışlar, ilgi) tavan yapmak",
-    "sentence": "Throughput went through the roof."
+    "word": "eager to show something",
+    "meaning": "bir şey göstermeye istekli olmak",
+    "sentence": "she asks, obviously eager to show me something."
   },
   {
-    "word": "magic wand",
-    "meaning": "sihirli değnek",
-    "sentence": "Okay, guys, you have the magic wand."
+    "word": "early adopters",
+    "meaning": "erken benimseyenler",
+    "sentence": ""
   },
   {
-    "word": "temperamental",
-    "meaning": "yaradılıştan olan, yaratılıştan gelen",
-    "sentence": "n many ways, most of these guys are my temperamental opposites"
+    "word": "effective as of",
+    "meaning": "-den geçerli olmak üzere",
+    "sentence": "Effective as of this morning, Luke and Damon are no longer with the company"
   },
   {
-    "word": "in the meantime",
-    "meaning": "bu arada, bu süre içinde, bununla birlilkte",
-    "sentence": "In the meantime, Brent worked with William’s team to create the build procedures and automated mechanisms that could simultane- ously create the Dev, QA, and Production environments."
+    "word": "elaborate",
+    "meaning": "ayrıntıyla donatmak, detaylandırmak, özenle hazırlanmış",
+    "sentence": "this is an elaborate service"
+  },
+  {
+    "word": "elicitation (elisiteyşın)",
+    "meaning": "the act of getting information or a reaction from somebody, often with difficulty",
+    "sentence": ""
+  },
+  {
+    "word": "emphasize",
+    "meaning": "to give special importance to something; vurgulamak",
+    "sentence": "His speech emphasized the importance of attracting industry to the town"
+  },
+  {
+    "word": "endeavor",
+    "meaning": "çabalamak, çaba",
+    "sentence": "we as technologists and engineers overlook when striving to create scalable solutions or solve problems related to scalability."
+  },
+  {
+    "word": "entice (intayz)",
+    "meaning": "to persuade somebody/something to go somewhere or to do something, usually by offering them something; aklını çelmek",
+    "sentence": "this book might entice you"
+  },
+  {
+    "word": "envision (invijın)",
+    "meaning": "tasavvur etmek, düşünmek",
+    "sentence": "He envisioned a new and superior retail experience."
+  },
+  {
+    "word": "eschew (aşıvf)",
+    "meaning": "kaçınmak, sakınmak",
+    "sentence": "So can we eschew shared memory?"
+  },
+  {
+    "word": "even the unveiling of the visionary computer",
+    "meaning": "ortaya çıkması ile",
+    "sentence": ""
   },
   {
     "word": "exasperation",
@@ -1025,34 +400,29 @@
     "sentence": ""
   },
   {
-    "word": "contagious",
-    "meaning": "bulaşıcı, salgın",
+    "word": "fallacy (falisi)",
+    "meaning": "a false idea that many people believe is true, a false way of thinking about something",
+    "sentence": "it is a fallacy to say that the camera never lies. He detected the fallacy of her argument."
+  },
+  {
+    "word": "fear of missing out (fomo)",
+    "meaning": "fırsatı kaçırma korkusu",
     "sentence": ""
   },
   {
-    "word": "notion",
-    "meaning": "düşünce, kavram",
-    "sentence": "But the notion of having to keep up with ten deploys a day?"
+    "word": "feasible",
+    "meaning": "that is possible and likely to be achieved",
+    "sentence": "a feasible plan/suggestion/idea"
   },
   {
-    "word": "lunacy",
-    "meaning": "delilik, çılgınlık",
-    "sentence": "Complete lunacy!"
+    "word": "fictious",
+    "meaning": "farazi",
+    "sentence": "For example, imagine (and these numbers are completely fictious) Google had 20 POPs."
   },
   {
-    "word": "meanwhile",
-    "meaning": "aynı anda, bu sırada",
-    "sentence": "“For years, I’ve been trying to get IT to build out the infrastructure to enable this capability, but all we heard was, ‘no, it can’t be done.’ Meanwhile, our competition has been able to work with any manufacturer who says yes.”"
-  },
-  {
-    "word": "interaction",
-    "meaning": "etkileşim",
-    "sentence": "Contract testing verifies interaction on both sides and makes sure that any desired versions of them are compatible."
-  },
-  {
-    "word": "chances are",
-    "meaning": "çok olasıdır ki, muhtemelen",
-    "sentence": "If you're reading this, chances are you want to learn Haskell."
+    "word": "flash mob",
+    "meaning": "birden kalabalıklaşan insan grubu",
+    "sentence": ""
   },
   {
     "word": "float around",
@@ -1060,44 +430,34 @@
     "sentence": "There are quite a few tutorials on Haskell floating around on the internet."
   },
   {
-    "word": "hurdle",
-    "meaning": "engeli aşmak, halletmek (v); engel, güçlük, sorun",
-    "sentence": "after getting over that initial hurdle"
-  },
-  {
-    "word": "bear with me",
-    "meaning": "benimle kal, benimle birlikte ol",
-    "sentence": "Pretty cool, huh? Yeah, I know it's not but bear with me"
-  },
-  {
-    "word": "Now let's try making our own!",
-    "meaning": "Şimdi kendimiz yapmayı deneyelim.",
+    "word": "for the foreseeable future",
+    "meaning": "",
     "sentence": ""
   },
   {
-    "word": "multitude",
-    "meaning": "kalabalık, çokluk, halk, avam",
-    "sentence": "It's the most used data structure and it can be used in a multitude of different ways to model and solve a whole bunch of problems."
+    "word": "frown upon",
+    "meaning": "uygun görmemek, razı olmamak",
+    "sentence": "Why is reinventing the wheel so frowned upon?"
   },
   {
-    "word": "a bunch of problems",
-    "meaning": "bir grup problemler",
+    "word": "gather to make decision",
+    "meaning": "karar vermek için toplanmak",
     "sentence": ""
   },
   {
-    "word": "prepend",
-    "meaning": "başına eklemek",
-    "sentence": ""
+    "word": "gauge",
+    "meaning": "ölçmek",
+    "sentence": "we also need to get it in front of potential customers to gauge theiir reactions."
   },
   {
-    "word": "append",
-    "meaning": "sonuna eklemek",
-    "sentence": ""
+    "word": "genuine (ceniyın)",
+    "meaning": "özgün, gerçek, hakiki",
+    "sentence": "I look at him with genuine surprise."
   },
   {
-    "word": "glance",
-    "meaning": "göz atmak, kısa bakış, göz gezdirmek",
-    "sentence": ""
+    "word": "get tangled up in something",
+    "meaning": "kötü bir duruma bulaşmış olmak",
+    "sentence": "if your code gets tangled up in them"
   },
   {
     "word": "give it a whirl",
@@ -1105,28 +465,223 @@
     "sentence": "Let's give it a whirl."
   },
   {
-    "word": "with the advent of the Internet",
-    "meaning": "İnternetin gelişiyle",
-    "sentence": "With the advent of the Internet, cloud computing, and open source software, the cost of building products is at an all-time low."
-  },
-  {
-    "word": "all-time low",
-    "meaning": "tüm zamanların en düşük seviyesi",
+    "word": "glance",
+    "meaning": "göz atmak, kısa bakış, göz gezdirmek",
     "sentence": ""
   },
   {
-    "word": "the odds of building successfull startup",
-    "meaning": "başarılı startup kurma şansı",
+    "word": "go astray",
+    "meaning": "to become lost; to be stolen",
+    "sentence": "Several letters went astray or were not delivered; We locked up our valueables so they would not go astray."
+  },
+  {
+    "word": "go awry (go ray)",
+    "meaning": "ters gitmek",
+    "sentence": "When the Five Whys approach goes awry, I call it the Five Blames."
+  },
+  {
+    "word": "go ballistic",
+    "meaning": "çılgına dönmek, öfkeden çıldırmak",
+    "sentence": "they will go ballistic"
+  },
+  {
+    "word": "go through the roof",
+    "meaning": "(fiyatlar, satışlar, ilgi) tavan yapmak",
+    "sentence": "Throughput went through the roof."
+  },
+  {
+    "word": "grok",
+    "meaning": "bir şeyin özünü kavramak",
+    "sentence": "If they can't grok it, then maybe we have a skills problem in those teams."
+  },
+  {
+    "word": "gut feeling",
+    "meaning": "iç güdüsel duygu",
+    "sentence": "people do it based solely on their personal gut feeling rather than past experience or actual data"
+  },
+  {
+    "word": "hatred",
+    "meaning": "nefret, düşmanlık",
+    "sentence": "He’s staring at Erik with an expression of intense hatred on his face"
+  },
+  {
+    "word": "have a conversation",
+    "meaning": "",
     "sentence": ""
   },
   {
-    "word": "even the unveiling of the visionary computer",
-    "meaning": "ortaya çıkması ile",
+    "word": "have plenty of time",
+    "meaning": "bolca vakti olmak",
     "sentence": ""
   },
   {
-    "word": "retain customer",
-    "meaning": "müşterileri tutmak",
+    "word": "held responsible",
+    "meaning": "accountable",
+    "sentence": "For each of these initiatives and mea- surements, who are the managers held responsible and accountable?"
+  },
+  {
+    "word": "hesitate",
+    "meaning": "hesitate to do something to be worried about doing something especially because you are not sure that it is right or appropriate",
+    "sentence": "She never hesitated to speak her mind."
+  },
+  {
+    "word": "hindsight",
+    "meaning": "önemini sonradan anlama, geç anlama",
+    "sentence": "Its obvious in hindsight"
+  },
+  {
+    "word": "hoard knowledge",
+    "meaning": "bilgi toplamak",
+    "sentence": ""
+  },
+  {
+    "word": "hockey stick growth",
+    "meaning": "hızlı büyüme, üstel büyüme",
+    "sentence": ""
+  },
+  {
+    "word": "hold accountable",
+    "meaning": "sorumlu tutmak",
+    "sentence": "how to hold entrepreneurial managers accountable"
+  },
+  {
+    "word": "hurdle",
+    "meaning": "engeli aşmak, halletmek (v); engel, güçlük, sorun",
+    "sentence": "after getting over that initial hurdle"
+  },
+  {
+    "word": "immensely valuable",
+    "meaning": "son derece değerli",
+    "sentence": "Customer feedback during this two-week iteration cycle was immensely valuable."
+  },
+  {
+    "word": "impromptu",
+    "meaning": "hazırlıksız",
+    "sentence": "I invite Wes and Patty to the impromptu meeting but only Patty can make it."
+  },
+  {
+    "word": "in a bind",
+    "meaning": "darda, sıkıntıda",
+    "sentence": "Greg was in a bind"
+  },
+  {
+    "word": "in accordance with",
+    "meaning": "göre, uygun olarak, gereğince",
+    "sentence": "in accordance with traditional management practices,"
+  },
+  {
+    "word": "in charge of",
+    "meaning": "sorumluluğunda",
+    "sentence": "The team in charge of growing the customer segment wanted to run experiments with a lower price structure."
+  },
+  {
+    "word": "in one sitting",
+    "meaning": "tek oturuşta",
+    "sentence": "Sketch a canvas in one sitting."
+  },
+  {
+    "word": "in the blink of an eye",
+    "meaning": "göz açıp kapayıncaya kadar",
+    "sentence": ""
+  },
+  {
+    "word": "in the meantime",
+    "meaning": "bu arada, bu süre içinde, bununla birlilkte",
+    "sentence": "In the meantime, Brent worked with William’s team to create the build procedures and automated mechanisms that could simultane- ously create the Dev, QA, and Production environments."
+  },
+  {
+    "word": "inadequate",
+    "meaning": "yetersiz, liyakatsiz",
+    "sentence": ""
+  },
+  {
+    "word": "initiative (inişitiv)",
+    "meaning": "a new plan for dealing with a particular problem or for achieving a particular purpose, girişkenlik, girişim, ilk adım, insiyatif",
+    "sentence": ""
+  },
+  {
+    "word": "insist ",
+    "meaning": "ısrar etmek",
+    "sentence": "I didn't really want to go but he insisted."
+  },
+  {
+    "word": "insisting on",
+    "meaning": "ısrar etmek, direnmek, dayatmak",
+    "sentence": "Swinmurn could have waited a long time, insisting on testing his complete vision complete with warehouses"
+  },
+  {
+    "word": "interaction",
+    "meaning": "etkileşim",
+    "sentence": "Contract testing verifies interaction on both sides and makes sure that any desired versions of them are compatible."
+  },
+  {
+    "word": "interrogate",
+    "meaning": "sorgulamak, ifadesini almak",
+    "sentence": "Wes and Patty argue over who will help interrogate John"
+  },
+  {
+    "word": "intimidate into",
+    "meaning": "gözünü korkutmak",
+    "sentence": "They were accused of intimidating people into voting for them."
+  },
+  {
+    "word": "intuition",
+    "meaning": "the ability to know something by using your feelings rather than considering the facts",
+    "sentence": "He was guided by intuition and personal judgement."
+  },
+  {
+    "word": "invaluable",
+    "meaning": "paha biçilemez",
+    "sentence": "Documenting the reasons behind requirements will give your team invaluable information when making daily implementation decisions."
+  },
+  {
+    "word": "jeopardize (cepidayz)",
+    "meaning": "tehlikeye atmak, tehlikeye sokmak",
+    "sentence": "its jeopardizing the company"
+  },
+  {
+    "word": "just a hunch",
+    "meaning": "sadece bir önsezi",
+    "sentence": ""
+  },
+  {
+    "word": "kludge (kuluç)",
+    "meaning": "a solution to a problem that has been quickly and badly put together; (hızlı ve kötü bir çözüm yapmak)",
+    "sentence": ""
+  },
+  {
+    "word": "leave no room for doubt",
+    "meaning": "şüpheye yer bırakmamak",
+    "sentence": "When you see a startup that has found a fit with a large market, it's exhilarating. It leaves no room for doubt."
+  },
+  {
+    "word": "liability",
+    "meaning": "yükümlülük",
+    "sentence": "Any value or liability within our products is a result of human endeavors."
+  },
+  {
+    "word": "longevity (lançevidi)",
+    "meaning": "uzun ömürlü olma, ",
+    "sentence": "Three main factors affect your cache hit ratio: data set size, space and longevity."
+  },
+  {
+    "word": "lunacy",
+    "meaning": "delilik, çılgınlık",
+    "sentence": "Complete lunacy!"
+  },
+  {
+    "word": "lurk / lurk in",
+    "meaning": "gizlenmek / -de gizli olmak, -de saklı olmak",
+    "sentence": "All manner of problems can lurk in the shadows of third-party code."
+  },
+  {
+    "word": "magic wand",
+    "meaning": "sihirli değnek",
+    "sentence": "Okay, guys, you have the magic wand."
+  },
+  {
+    "word": "make a fuss about",
+    "meaning": "aşırı kaygı duymak, mesele yapmak, son derece endişelenmek",
     "sentence": ""
   },
   {
@@ -1135,9 +690,9 @@
     "sentence": "it’s easy to make such a declaration, but some times are certainly better than others to consider external funding"
   },
   {
-    "word": "pitch a business plan",
-    "meaning": "iş planı hazırlamak",
-    "sentence": ""
+    "word": "manifest",
+    "meaning": "açıkca göstermek, beyan etmek",
+    "sentence": "Memory leaks often manifest"
   },
   {
     "word": "massive undertaking",
@@ -1145,9 +700,484 @@
     "sentence": "Writing a whole book was still a massive undertaking."
   },
   {
-    "word": "immensely valuable",
-    "meaning": "son derece değerli",
-    "sentence": "Customer feedback during this two-week iteration cycle was immensely valuable."
+    "word": "meanwhile",
+    "meaning": "aynı anda, bu sırada",
+    "sentence": "“For years, I’ve been trying to get IT to build out the infrastructure to enable this capability, but all we heard was, ‘no, it can’t be done.’ Meanwhile, our competition has been able to work with any manufacturer who says yes.”"
+  },
+  {
+    "word": "mere",
+    "meaning": "used when you want to emphasize how small, unimportant, etc. somebody/something is",
+    "sentence": "It took her a mere 20 minutes to win."
+  },
+  {
+    "word": "micromanage",
+    "meaning": "en ufak ayrıntısına kadar incelemek/kontrol etmek",
+    "sentence": ""
+  },
+  {
+    "word": "minutia",
+    "meaning": "küçük detaylar",
+    "sentence": "irrelevant technical minutia"
+  },
+  {
+    "word": "modus operandi",
+    "meaning": "izlenen yöntem, icra tarzı",
+    "sentence": "ntensity is a tool that you can use on special occasions, but if that’s your modus operandi, you won’t be able to sustain it for a long time."
+  },
+  {
+    "word": "mull over",
+    "meaning": "düşünüp taşınmak, üzerinde düşünmek, kafa yormak",
+    "sentence": "I’m still mulling over Erik’s cryptic comments."
+  },
+  {
+    "word": "multitude",
+    "meaning": "kalabalık, çokluk, halk, avam",
+    "sentence": "It's the most used data structure and it can be used in a multitude of different ways to model and solve a whole bunch of problems."
+  },
+  {
+    "word": "no argument there",
+    "meaning": "haklısın",
+    "sentence": ""
+  },
+  {
+    "word": "notion",
+    "meaning": "düşünce, kavram",
+    "sentence": "But the notion of having to keep up with ten deploys a day?"
+  },
+  {
+    "word": "odds",
+    "meaning": "ihtimal",
+    "sentence": "increase their odds of building a successful startup"
+  },
+  {
+    "word": "oppose",
+    "meaning": "to disagree strongly with somebody's plan, policy, etc. and try to change it or prevent it from succeding",
+    "sentence": "I oppose anyone rolling their own connection pool class"
+  },
+  {
+    "word": "out of desperation",
+    "meaning": "çaresizlik",
+    "sentence": "out of desperation, we decided to talk to some potential customers."
+  },
+  {
+    "word": "out of the woods",
+    "meaning": "artık tehlikede değil, kritik safhayı atlatmış",
+    "sentence": "When we’re out of the woods,” I say, “we’ve got to figure out how to prevent this from happening again."
+  },
+  {
+    "word": "outrage (autreyç)",
+    "meaning": "zedelemek (gurur), hakaret etmek",
+    "sentence": "John is shaking with outrage."
+  },
+  {
+    "word": "outstanding",
+    "meaning": "",
+    "sentence": ""
+  },
+  {
+    "word": "perseverance",
+    "meaning": "sebat, azim, sabır, tahammül",
+    "sentence": "hard work and perseverance don't lead to success."
+  },
+  {
+    "word": "pertinent (pörınt)",
+    "meaning": "ilgili, alakalı, münasip",
+    "sentence": "the more pertinent questions are .."
+  },
+  {
+    "word": "pitch a business plan",
+    "meaning": "iş planı hazırlamak",
+    "sentence": ""
+  },
+  {
+    "word": "political capital",
+    "meaning": "siyasi sermaye",
+    "sentence": "“Do you know how much political capital I’ve spent over the last two years, trying to get everyone to do the right thing?"
+  },
+  {
+    "word": "pondering",
+    "meaning": "düşünüp taşınmak, kafa yormak",
+    "sentence": "I’m pondering how we can mitigate some of this risk when I hear Kirsten call Brent’s name for the third time."
+  },
+  {
+    "word": "poring through",
+    "meaning": "göz atmak",
+    "sentence": "William’s engineers started poring through the developer’s laptop"
+  },
+  {
+    "word": "preconceived notion",
+    "meaning": "önyargılı fikir",
+    "sentence": "Some constraints are absolute; others are merely preconceived notion"
+  },
+  {
+    "word": "prepend",
+    "meaning": "başına eklemek",
+    "sentence": ""
+  },
+  {
+    "word": "pressure",
+    "meaning": "basınç, baskı, zorlamak",
+    "sentence": "On top of that, several other of my group’s critical tasks are late, put- ting even more pressure on the deadline"
+  },
+  {
+    "word": "prevalence",
+    "meaning": "yaygınlık",
+    "sentence": "A prevalence of noisy comments and incorrect comments in a codebase encourages programmers to ignore all comments, either by skipping past them or by taking active measures to hide them."
+  },
+  {
+    "word": "proof of concept",
+    "meaning": "kavramın ispatı",
+    "sentence": "Choose an area that you feel will be difficult and begin producing some kind of proof of concept."
+  },
+  {
+    "word": "proximate cause",
+    "meaning": "en yakın sebep",
+    "sentence": "The blocked threads antipattern is the proximate cause of most failures."
+  },
+  {
+    "word": "pull out all the stops",
+    "meaning": "to make the greatest effort possible to achieve something",
+    "sentence": ""
+  },
+  {
+    "word": "reams of",
+    "meaning": "bir sürü",
+    "sentence": "Were there seasonal factors that might be skewing the data? Finding these answers would have required parsing reams and reams of data."
+  },
+  {
+    "word": "recede into the distance",
+    "meaning": "uzaklaşmak",
+    "sentence": "A startup that fails to do so will see that ideal recede ever farther into the distance."
+  },
+  {
+    "word": "reconceive (rikonsiv)",
+    "meaning": "yeniden değerlendirmek, yeniden tasarlamak",
+    "sentence": "The Lean Startup methodology reconceives a startup's efforts as experiments that"
+  },
+  {
+    "word": "reconcile (rekonsayıl)",
+    "meaning": "uzlaştırmak, barıştırmak",
+    "sentence": "we never reconciled the business and IT projects with each other."
+  },
+  {
+    "word": "rectify",
+    "meaning": "düzeltmek",
+    "sentence": "administrator trying to rectify the situation might reboot it"
+  },
+  {
+    "word": "regulations",
+    "meaning": "yönetmelik, talimatname, düzenleme",
+    "sentence": "compliance with laws and regulations"
+  },
+  {
+    "word": "rehearse",
+    "meaning": "prova yapmak",
+    "sentence": "I’ve rehearsed so many times with the team"
+  },
+  {
+    "word": "reinforce",
+    "meaning": "pekiştirmek, sağlamlaştırmak; to make a feeling, an idea, etc. stronger",
+    "sentence": "The antipatterns have a tendency to reinforce each other"
+  },
+  {
+    "word": "relieve",
+    "meaning": "rahatlamak",
+    "sentence": "I relieved"
+  },
+  {
+    "word": "resemble (rizımbıl)",
+    "meaning": "to look like or be similar to another person or thing; benzemek, andırmak",
+    "sentence": "She closely resembles her sister."
+  },
+  {
+    "word": "resign",
+    "meaning": "to officially tell somebody that you are leaving your job, an organization, etc.",
+    "sentence": ""
+  },
+  {
+    "word": "resignation letter",
+    "meaning": "istifa mektubu",
+    "sentence": ""
+  },
+  {
+    "word": "retain customer",
+    "meaning": "müşterileri tutmak",
+    "sentence": ""
+  },
+  {
+    "word": "retrospect (redırspekt)",
+    "meaning": "geçmişe bakış",
+    "sentence": "In retrospect, one good decision we made was to set clear revenue targets for those early days."
+  },
+  {
+    "word": "revise",
+    "meaning": "gözden geçirerek düzeltmek, değiştirmek (fikir, plan, düşünme)",
+    "sentence": "As a result, they have the opportunity to use cutting-edge experimental techniques as they constantly revise their product."
+  },
+  {
+    "word": "rip up sth",
+    "meaning": "to tear something into small pieces",
+    "sentence": "He ripped up the letter and threw it in the fire."
+  },
+  {
+    "word": "roll up one's sleeves",
+    "meaning": "kolları sıvamak, paçaları sıvamak",
+    "sentence": "We roll up our sleeves and get to work."
+  },
+  {
+    "word": "rollout",
+    "meaning": "yeni çıkan bir ürün veya hizmetin ilk kez görücüye, müşteriye çıkması",
+    "sentence": ""
+  },
+  {
+    "word": "rude awakening (ruud aveykining)",
+    "meaning": "hayal kırıklığı",
+    "sentence": ""
+  },
+  {
+    "word": "rundown",
+    "meaning": "özet, kısa bilgi",
+    "sentence": "Kirsten gives us a rundown of the most critical Phoenix project tasks at the beginning of each day."
+  },
+  {
+    "word": "screwup",
+    "meaning": "hata, yanlış",
+    "sentence": "to make sure something doesn't get screwed up"
+  },
+  {
+    "word": "scrutinize (sukrutınayz)",
+    "meaning": "to look at or examine somebody/something carefully",
+    "sentence": "The statement was carefully scrutinized before publication"
+  },
+  {
+    "word": "seek to understand",
+    "meaning": "anlamaya çalışmak",
+    "sentence": "I remind myself that my goal is to observe and seek to understand."
+  },
+  {
+    "word": "self-reproach",
+    "meaning": "kendini suçlama",
+    "sentence": "There is a luxury in self-reproach. When we blame ourselves we feel no one else has a right to blame us."
+  },
+  {
+    "word": "setback",
+    "meaning": "aksilik",
+    "sentence": "We had a big setback"
+  },
+  {
+    "word": "share a trait",
+    "meaning": "bir özelliği paylaşmak",
+    "sentence": "Great performers share a trait; they know when to start and when to wait."
+  },
+  {
+    "word": "sheer number of",
+    "meaning": "çok sayıda",
+    "sentence": "because of the sheer number of strings involved."
+  },
+  {
+    "word": "shortcomings",
+    "meaning": "eksiklikler, eksik yönleri",
+    "sentence": "Some of these shortcomings can be overcome by introducing additional mechanisms."
+  },
+  {
+    "word": "shoulder",
+    "meaning": "omuzlamak",
+    "sentence": "if the developers shoulder the problem"
+  },
+  {
+    "word": "shrug off",
+    "meaning": "to treat something as if it is not important",
+    "sentence": "Shrugging off her injury, she played on. He shrugged aside suggestions that he resign."
+  },
+  {
+    "word": "sight of",
+    "meaning": "görüş",
+    "sentence": "we lose sight of real goal innovation."
+  },
+  {
+    "word": "slashdot",
+    "meaning": "bir siteye çok sayıda ziyaretçinin aynı anda bağlanması sonrası sitenin çökmesi",
+    "sentence": ""
+  },
+  {
+    "word": "slip through the cracks",
+    "meaning": "gözden kaçmak, ihmal edilmek",
+    "sentence": "It was a database schema change that slipped through the cracks"
+  },
+  {
+    "word": "sneer at",
+    "meaning": "küçümsemek",
+    "sentence": "When I don’t say anything, he just sneers at me."
+  },
+  {
+    "word": "sort of",
+    "meaning": "çeşit, tür",
+    "sentence": ""
+  },
+  {
+    "word": "spare time",
+    "meaning": "available to do what you want with rather than work",
+    "sentence": "He's studying music in his spare time"
+  },
+  {
+    "word": "state of affairs",
+    "meaning": "gidişat, şartlar, durum, gelinen nokta",
+    "sentence": ""
+  },
+  {
+    "word": "strive(sıtrayv) after/towards something",
+    "meaning": "to try very hard to achieve something;",
+    "sentence": "They were always striving towards perfection."
+  },
+  {
+    "word": "striving for",
+    "meaning": "çabalamak",
+    "sentence": "The code review that I had felt so ready for came as a rude awakening"
+  },
+  {
+    "word": "stuck in the muddle",
+    "meaning": "belaya batmak, çamura saplanmak",
+    "sentence": "“Stay focused and get Phoenix working. Without it, we are stuck in the mud.”"
+  },
+  {
+    "word": "subtle (satıl)",
+    "meaning": "hemen göze çarpmayan, ince",
+    "sentence": "This is a relatively subtle distinction, but its one that will have profound implications for the developers."
+  },
+  {
+    "word": "sweat (swet)",
+    "meaning": "terlemek, ter",
+    "sentence": "A lot of sweat has gone into producing this."
+  },
+  {
+    "word": "take for granted",
+    "meaning": "düzenlenmiş saymak, kanıksamak, kıymet bilmemek",
+    "sentence": "but that is because accounting is something that has become taken for granted."
+  },
+  {
+    "word": "task force",
+    "meaning": "a group of people who are brought together to deal with a particular problem",
+    "sentence": "The government has set up a task force to improve standarts in schools."
+  },
+  {
+    "word": "temperamental",
+    "meaning": "yaradılıştan olan, yaratılıştan gelen",
+    "sentence": "n many ways, most of these guys are my temperamental opposites"
+  },
+  {
+    "word": "the luck of the draw",
+    "meaning": "the fact that chance decides somethings, in a way that you cannot control",
+    "sentence": "The company sent me to do a job. It was the luck of the draw."
+  },
+  {
+    "word": "the moral of the story",
+    "meaning": "kıssadan hisse",
+    "sentence": "they are not the moral of the story."
+  },
+  {
+    "word": "the odds of building successfull startup",
+    "meaning": "başarılı startup kurma şansı",
+    "sentence": ""
+  },
+  {
+    "word": "the sheer size of the system",
+    "meaning": "sistemin büyüklüğü",
+    "sentence": "Most of these differences are due to the sheer size of the system itself."
+  },
+  {
+    "word": "the tip of the iceberg",
+    "meaning": "buzdağının görünen kısmı",
+    "sentence": "that’s only the tip of the iceberg"
+  },
+  {
+    "word": "the underpinning of the systems",
+    "meaning": "",
+    "sentence": ""
+  },
+  {
+    "word": "thrill",
+    "meaning": "heyecan, heyecanlandırmak, etkilemek",
+    "sentence": "In consumer products, it’s often the thrill of being the frst one on the block to show off a new basketball shoe, music player, or cool phone"
+  },
+  {
+    "word": "tip over",
+    "meaning": "devrilmek; to fall or turn over; to make something do this",
+    "sentence": "The mug tipped over, spilling hot coffee everywhere."
+  },
+  {
+    "word": "to reap the rewards of their skills",
+    "meaning": "becerilerinin meyvelerini toplamak için",
+    "sentence": "anagers who can lead teams by using the Lean Startup methodology should not have to leave the company to reap the rewards of their skills"
+  },
+  {
+    "word": "trafic steering",
+    "meaning": "trafik yönlendirme",
+    "sentence": "to pvoide granular traffic steering"
+  },
+  {
+    "word": "tuition",
+    "meaning": "harç",
+    "sentence": "My parents don’t have money to pay tuition"
+  },
+  {
+    "word": "ubiquitous",
+    "meaning": "her yerde birden bulunan",
+    "sentence": "ubiquitous automation"
+  },
+  {
+    "word": "unleash your potential",
+    "meaning": "",
+    "sentence": "You'll see how to unleash your potential."
+  },
+  {
+    "word": "untangle",
+    "meaning": "karışık bir şeyi açmak, düğümü çözmek",
+    "sentence": "you won't be spending days untangling your code you wrote only 6 months ago."
+  },
+  {
+    "word": "urge to be",
+    "meaning": "teşvik etmek",
+    "sentence": "the second practice promoting simplicity is to deliberately avoid the urge to overengineer"
+  },
+  {
+    "word": "utmost",
+    "meaning": "son derece",
+    "sentence": "losing time has the utmost severity"
+  },
+  {
+    "word": "vastly",
+    "meaning": "genişce, çok",
+    "sentence": "you vastly higher capacity"
+  },
+  {
+    "word": "venture",
+    "meaning": "girişim, tehlikeye atmak, riske atmak",
+    "sentence": "money from venture investors"
+  },
+  {
+    "word": "venture capital",
+    "meaning": "risk sermayesi",
+    "sentence": "he tried to raise venture capital"
+  },
+  {
+    "word": "viewpoint",
+    "meaning": "bakış açısı",
+    "sentence": "Both viewpoints are pure hyperbole."
+  },
+  {
+    "word": "weak spot (viyık sıpat)",
+    "meaning": "zayıf nokta",
+    "sentence": ""
+  },
+  {
+    "word": "well-deserved reputation",
+    "meaning": "hak edilmiş itibar, ün, şöhret",
+    "sentence": ""
+  },
+  {
+    "word": "whats the point?",
+    "meaning": "amaç ne?",
+    "sentence": ""
   },
   {
     "word": "when you first start out",
@@ -1155,19 +1185,19 @@
     "sentence": ""
   },
   {
-    "word": "in one sitting",
-    "meaning": "tek oturuşta",
-    "sentence": "Sketch a canvas in one sitting."
+    "word": "wholeheartedly",
+    "meaning": "içtenlikle",
+    "sentence": "I wholeheartedly agree"
+  },
+  {
+    "word": "with the advent of the Internet",
+    "meaning": "İnternetin gelişiyle",
+    "sentence": "With the advent of the Internet, cloud computing, and open source software, the cost of building products is at an all-time low."
   },
   {
     "word": "with these problems in mind",
     "meaning": "bu sorunları göz önünde bulundurarak",
     "sentence": "With these problems in mind, get more specific on the customer seg- ment."
-  },
-  {
-    "word": "dead center",
-    "meaning": "bir şemanın tam ortası gibi düşün",
-    "sentence": "Dead center in the Lean Canvas is a box for your UVP."
   },
   {
     "word": "word of mouth",
@@ -1180,38 +1210,8 @@
     "sentence": "Operations teams, too, find their workload greatly simplified by containers"
   },
   {
-    "word": "unleash your potential",
-    "meaning": "",
-    "sentence": "You'll see how to unleash your potential."
-  },
-  {
-    "word": "based on my own life and experience",
-    "meaning": "",
+    "word": "would you mind",
+    "meaning": "sakıncası yoksa",
     "sentence": ""
-  },
-  {
-    "word": "outstanding",
-    "meaning": "",
-    "sentence": ""
-  },
-  {
-    "word": "trafic steering",
-    "meaning": "trafik yönlendirme",
-    "sentence": "to pvoide granular traffic steering"
-  },
-  {
-    "word": "for the foreseeable future",
-    "meaning": "",
-    "sentence": ""
-  },
-  {
-    "word": "the underpinning of the systems",
-    "meaning": "",
-    "sentence": ""
-  },
-  {
-    "word": "viewpoint",
-    "meaning": "bakış açısı",
-    "sentence": "Both viewpoints are pure hyperbole."
   }
 ]

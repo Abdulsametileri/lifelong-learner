@@ -3,8 +3,9 @@ package vocabulary
 import (
 	"context"
 	"encoding/json"
-	"github.com/pkg/errors"
 	"os"
+
+	"github.com/pkg/errors"
 )
 
 type LocalFileClient struct {

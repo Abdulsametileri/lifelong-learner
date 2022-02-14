@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"os"
+	"sort"
 
 	"github.com/pkg/errors"
 	"google.golang.org/api/option"
@@ -51,6 +52,8 @@ func transformSheetResponse(resp *sheets.Spreadsheet) []*Vocabulary {
 	rows := firstSheet.Data[0].RowData
 
 	vocabularies := make([]*Vocabulary, 0, len(rows))
+	wordToVocabulary := make(map[string]*Vocabulary, len(rows))
+	words := make([]string, 0, len(rows))
 
 	for _, row := range rows {
 		cellData := row.Values
@@ -66,7 +69,14 @@ func transformSheetResponse(resp *sheets.Spreadsheet) []*Vocabulary {
 			voc.Sentence = cellData[2].FormattedValue
 		}
 
-		vocabularies = append(vocabularies, voc)
+		wordToVocabulary[voc.Word] = voc
+		words = append(words, voc.Word)
+	}
+
+	sort.Strings(words)
+
+	for i := range words {
+		vocabularies = append(vocabularies, wordToVocabulary[words[i]])
 	}
 
 	return vocabularies

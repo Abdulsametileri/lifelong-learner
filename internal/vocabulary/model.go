@@ -5,3 +5,7 @@ type Vocabulary struct {
 	Meaning  string `json:"meaning"`
 	Sentence string `json:"sentence"`
 }
+
+func (v *Vocabulary) String() string {
+	return v.Word + " " + v.Meaning + " " + v.Sentence
+}

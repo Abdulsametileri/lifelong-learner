@@ -63,8 +63,8 @@ func createLogger(logFormat string) log.Logger {
 	return log.New()
 }
 
-func createVocabularyClient(IsGoogleSheetClientEnabled bool) (vocabulary.Client, error) {
-	if IsGoogleSheetClientEnabled {
+func createVocabularyClient(isGoogleSheetClientEnabled bool) (vocabulary.Client, error) {
+	if isGoogleSheetClientEnabled {
 		googleSheetsAPIClient, err := vocabulary.NewGoogleSheetClient(
 			os.Getenv("SHEETS_API_KEY"),
 			os.Getenv("SPREADSHEET_ID"),
