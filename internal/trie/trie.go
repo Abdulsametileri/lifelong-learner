@@ -60,9 +60,9 @@ func (t *Trie) Search(word string) bool {
 	return currentNode.IsEnd
 }
 
-func (t *Trie) Suggest(prefix string) []string {
+func (t *Trie) Suggest(prefix string) []vocabulary.Vocabulary {
 	currentNode := t.Root
-	res := make([]string, 0)
+	res := make([]vocabulary.Vocabulary, 0)
 
 	for i := 0; i < len(prefix); i++ {
 		currentNode = currentNode.Children[prefix[i]-'a']
@@ -76,9 +76,9 @@ func (t *Trie) Suggest(prefix string) []string {
 	return res
 }
 
-func suggestHelper(node *Node, res *[]string, prefix string) {
+func suggestHelper(node *Node, res *[]vocabulary.Vocabulary, prefix string) {
 	if node.IsEnd {
-		*res = append(*res, prefix+string(node.Char))
+		*res = append(*res, node.Voc)
 	}
 	for i := 0; i < len(node.Children); i++ {
 		if node.Children[i] == nil {

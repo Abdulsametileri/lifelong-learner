@@ -11,13 +11,13 @@ import (
 
 func Test_Trie(t *testing.T) {
 	myTrie := trie.InitTrie()
-	myTrie.Insert(vocabulary.Vocabulary{Word: "make"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "adage"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "antidote"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "be cautious"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "be conducted"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "be hot on somebody's trail"})
-	myTrie.Insert(vocabulary.Vocabulary{Word: "based on my own life and experience"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "make", Sentence: "make ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "adage", Sentence: "adage ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "antidote", Sentence: "antidote ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "be cautious", Sentence: "be cautious ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "be conducted", Sentence: "be conducted ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "be hot on somebody's trail", Sentence: "be hot on somebody's trail ile sentence"})
+	myTrie.Insert(vocabulary.Vocabulary{Word: "based on my own life and experience", Sentence: "based on my own life and experience ile sentence"})
 
 	t.Run("test search", func(t *testing.T) {
 		assert.True(t, myTrie.Search("make"))
