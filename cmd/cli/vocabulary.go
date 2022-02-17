@@ -8,17 +8,17 @@ import (
 	"os"
 )
 
-var word string
+var prefix string
 var isGoogleSheetClientEnabled bool
 
 var vocabularyCmd = &cobra.Command{
 	Use:     "vocabulary",
 	Aliases: []string{"v", "voc"},
-	Short:   "This allows you to do operations related to vocabulary like searching with specified word",
-	Example: "learn vocabulary --word=shoulder",
+	Short:   "This allows you to do operations related to vocabulary like searching with specified prefix",
+	Example: "learn vocabulary --prefix=be",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if word == "" {
-			return errors.New("word flag is required")
+		if prefix == "" {
+			return errors.New("{word, prefix} flags cannot be empty")
 		}
 
 		vocabularyClient, err := createVocabularyClient()
@@ -27,7 +27,7 @@ var vocabularyCmd = &cobra.Command{
 		}
 
 		vocabularyService := vocabulary.NewService(vocabularyClient)
-		results, err := vocabularyService.SuggestWordsByPrefix(cmd.Context(), word)
+		results, err := vocabularyService.SuggestWordsByPrefix(cmd.Context(), prefix)
 		if err != nil {
 			return err
 		}
@@ -65,9 +65,9 @@ func createVocabularyClient() (vocabulary.Client, error) {
 
 //nolint:gochecknoinits
 func init() {
-	vocabularyCmd.Flags().StringVarP(&word, "word", "w", "", "name of the word you search for")
-	vocabularyCmd.Flags().BoolVarP(&isGoogleSheetClientEnabled, "googlesheetenabled", "g", false, "get all vocabularies from google sheet")
-	_ = vocabularyCmd.MarkFlagRequired("word")
+	vocabularyCmd.Flags().StringVarP(&prefix, "prefix", "p", "", "name of the prefix you search for")
+	vocabularyCmd.Flags().BoolVarP(&isGoogleSheetClientEnabled, "googlesheetenabled", "g", false, "get all vocabularies from google sheet api")
+	_ = vocabularyCmd.MarkFlagRequired("prefix")
 
 	rootCmd.AddCommand(vocabularyCmd)
 }
