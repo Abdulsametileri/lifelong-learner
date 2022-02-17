@@ -73,5 +73,5 @@ func createVocabularyClient(isGoogleSheetClientEnabled bool) (vocabulary.Client,
 		return googleSheetsAPIClient, err
 	}
 
-	return vocabulary.NewLocalFileClient()
+	return vocabulary.NewLocalFileClient("internal/vocabulary/vocabulary.json")
 }

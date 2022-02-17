@@ -6,6 +6,7 @@ import (
 
 type Client interface {
 	FindMeaningByWord(ctx context.Context, word string) (*Vocabulary, error)
+	SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error)
 }
 
 type DefaultService struct {
@@ -18,7 +19,14 @@ func NewService(repository Client) *DefaultService {
 
 func (s *DefaultService) GetMeaningByWord(ctx context.Context, word string) (*Vocabulary, error) {
 	if word == "" {
-		return nil, ErrWordIsEmpty
+		return nil, ErrFieldIsEmpty("Word")
 	}
 	return s.client.FindMeaningByWord(ctx, word)
+}
+
+func (s *DefaultService) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+	if prefix == "" {
+		return nil, ErrFieldIsEmpty("Prefix")
+	}
+	return s.client.SuggestWordsByPrefix(ctx, prefix)
 }

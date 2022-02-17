@@ -12,7 +12,7 @@ import (
 )
 
 type GoogleSheetClient struct {
-	vocabularies []*Vocabulary
+	Trie *Trie
 }
 
 func NewGoogleSheetClient(apiKey, spreadSheetID string, isVocabularyFileWillCreate bool) (*GoogleSheetClient, error) {
@@ -38,27 +38,37 @@ func NewGoogleSheetClient(apiKey, spreadSheetID string, isVocabularyFileWillCrea
 		return nil, createVocabularyFile(vocabularies)
 	}
 
+	tree := InitTrie()
+	for _, voc := range vocabularies {
+		tree.Insert(voc)
+	}
+
 	return &GoogleSheetClient{
-		vocabularies: vocabularies,
+		Trie: tree,
 	}, nil
+}
+
+func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+	vocabularies := gsc.Trie.Suggest(prefix)
+	return vocabularies, nil
 }
 
 func (gsc *GoogleSheetClient) FindMeaningByWord(ctx context.Context, word string) (*Vocabulary, error) {
 	return nil, nil
 }
 
-func transformSheetResponse(resp *sheets.Spreadsheet) []*Vocabulary {
+func transformSheetResponse(resp *sheets.Spreadsheet) []Vocabulary {
 	firstSheet := resp.Sheets[0]
 	rows := firstSheet.Data[0].RowData
 
-	vocabularies := make([]*Vocabulary, 0, len(rows))
-	wordToVocabulary := make(map[string]*Vocabulary, len(rows))
+	vocabularies := make([]Vocabulary, 0, len(rows))
+	wordToVocabulary := make(map[string]Vocabulary, len(rows))
 	words := make([]string, 0, len(rows))
 
 	for _, row := range rows {
 		cellData := row.Values
 
-		voc := &Vocabulary{}
+		voc := Vocabulary{}
 		if len(cellData) > 0 {
 			voc.Word = cellData[0].FormattedValue
 		}
@@ -82,7 +92,7 @@ func transformSheetResponse(resp *sheets.Spreadsheet) []*Vocabulary {
 	return vocabularies
 }
 
-func createVocabularyFile(vocabularies []*Vocabulary) error {
+func createVocabularyFile(vocabularies []Vocabulary) error {
 	vocabularyFile, err := os.Create("internal/vocabulary/vocabulary.json")
 	if err != nil {
 		return errors.Wrap(err, "error when creating vocabulary json")

@@ -1,7 +1,9 @@
 package vocabulary
 
-import "github.com/pkg/errors"
+import (
+	"fmt"
+)
 
 var (
-	ErrWordIsEmpty = errors.New("word field is empty")
+	ErrFieldIsEmpty = func(field string) error { return fmt.Errorf("%s field is empty", field) }
 )

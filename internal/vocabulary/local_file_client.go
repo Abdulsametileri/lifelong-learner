@@ -9,12 +9,12 @@ import (
 )
 
 type LocalFileClient struct {
-	vocabularies []*Vocabulary
+	Trie *Trie
 }
 
-func NewLocalFileClient() (*LocalFileClient, error) {
-	var vocabularies []*Vocabulary
-	bytes, err := os.ReadFile("internal/vocabulary/vocabulary.json")
+func NewLocalFileClient(filePath string) (*LocalFileClient, error) {
+	var vocabularies []Vocabulary
+	bytes, err := os.ReadFile(filePath)
 	if err != nil {
 		return nil, errors.Wrap(err, "error when reading vocabulary json")
 	}
@@ -22,11 +22,22 @@ func NewLocalFileClient() (*LocalFileClient, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "error when unmarshaling vocabulary json")
 	}
+
+	tree := InitTrie()
+	for _, voc := range vocabularies {
+		tree.Insert(voc)
+	}
+
 	return &LocalFileClient{
-		vocabularies: vocabularies,
+		Trie: tree,
 	}, nil
 }
 
 func (lfc *LocalFileClient) FindMeaningByWord(ctx context.Context, word string) (*Vocabulary, error) {
 	return nil, nil
+}
+
+func (lfc *LocalFileClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+	vocabularies := lfc.Trie.Suggest(prefix)
+	return vocabularies, nil
 }
