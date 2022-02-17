@@ -15,4 +15,4 @@ I'm currenty use
 
 # Demo
 
-![Example](about/learn-vocabulary-cli-example.gif)
+[![asciicast](https://asciinema.org/a/469829.svg)](https://asciinema.org/a/469829)

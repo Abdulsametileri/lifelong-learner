@@ -18,7 +18,7 @@ var vocabularyCmd = &cobra.Command{
 	Example: "learn vocabulary --prefix=be",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if prefix == "" {
-			return errors.New("{word, prefix} flags cannot be empty")
+			return errors.New("word flags cannot be empty")
 		}
 
 		vocabularyClient, err := createVocabularyClient()
