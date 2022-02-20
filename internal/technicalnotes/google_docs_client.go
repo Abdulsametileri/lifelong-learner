@@ -2,19 +2,17 @@ package technicalnotes
 
 import (
 	"context"
-	"encoding/json"
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/docs/v1"
 	"google.golang.org/api/option"
 	"io/ioutil"
 	"log"
-	"os"
 )
 
 type GoogleDocsClient struct{}
 
-func NewGoogleDocsClient() (*GoogleDocsClient, error) {
+func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
 	b, err := ioutil.ReadFile("./internal/technicalnotes/credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
@@ -31,7 +29,6 @@ func NewGoogleDocsClient() (*GoogleDocsClient, error) {
 		return nil, errors.Wrap(err, "error when initializing google docs service")
 	}
 
-	docID := os.Getenv("DOC_ID")
 	doc, err := svc.Documents.Get(docID).Do()
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to get specified document")
@@ -40,28 +37,4 @@ func NewGoogleDocsClient() (*GoogleDocsClient, error) {
 	createLocalDataFile(transformResponse(doc))
 
 	return nil, nil
-}
-
-func transformResponse(doc *docs.Document) TransformModel {
-	docBytes, err := doc.Body.MarshalJSON()
-	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when marshaling doc vody"))
-	}
-	transform := TransformModel{}
-	err = json.Unmarshal(docBytes, &transform)
-	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when unmarshaling the transform response"))
-	}
-	return transform
-}
-
-func createLocalDataFile(doc TransformModel) {
-	docBytes, err := json.Marshal(&doc)
-	if err != nil {
-		log.Fatal(errors.Wrap(err, "error marshalling doc"))
-	}
-	err = os.WriteFile("./internal/technicalnotes/transform.json", docBytes, 0600)
-	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when creating local json file"))
-	}
 }

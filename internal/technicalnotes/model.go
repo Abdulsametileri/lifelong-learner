@@ -1,6 +1,8 @@
 package technicalnotes
 
-type TransformModel struct {
+import "time"
+
+type GoogleDocResponse struct {
 	Content []struct {
 		Paragraph struct {
 			Elements []struct {
@@ -13,4 +15,21 @@ type TransformModel struct {
 			} `json:"paragraphStyle"`
 		} `json:"paragraph"`
 	} `json:"content"`
+}
+
+type ParagraphStyle string
+
+const (
+	PNORMAL = "NORMAL_TEXT"
+	PTITLE  = "TITLE"
+)
+
+type Note struct {
+	Paragraph string `json:"paragraph"`
+}
+
+type SearchResponse struct {
+	TotalTime   time.Duration `json:"totalTime"`
+	TotalResult uint64        `json:"totalResult"`
+	Results     []string      `json:"results"`
 }
