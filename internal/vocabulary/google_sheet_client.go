@@ -49,7 +49,7 @@ func NewGoogleSheetClient(apiKey, spreadSheetID string, isVocabularyFileWillCrea
 }
 
 func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
-	vocabularies := gsc.Trie.Suggest(prefix)
+	vocabularies := gsc.Trie.Suggest(ctx, prefix)
 	return vocabularies, nil
 }
 

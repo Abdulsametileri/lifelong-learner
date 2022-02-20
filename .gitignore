@@ -1,1 +1,5 @@
 .idea/
+./learn
+./internal/technicalnotes/credentials.json
+./internal/technicalnotes/data.json
+./internal/technicalnotes/token.json

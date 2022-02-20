@@ -15,7 +15,7 @@ var isGoogleSheetClientEnabled bool
 var vocabularyCmd = &cobra.Command{
 	Use:     "vocabulary",
 	Aliases: []string{"v", "voc"},
-	Short:   "This allows you to do operations related to vocabulary like searching with specified prefix",
+	Short:   "This allows you to do prefix search related to predefined vocabulary list",
 	Example: "learn vocabulary --prefix=be",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if prefix == "" {

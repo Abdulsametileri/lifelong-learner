@@ -1,6 +1,7 @@
 package vocabulary
 
 import (
+	"context"
 	"strings"
 )
 
@@ -57,7 +58,7 @@ func (t *Trie) Search(word string) bool {
 	return currentNode.IsEnd
 }
 
-func (t *Trie) Suggest(prefix string) []*Vocabulary {
+func (t *Trie) Suggest(ctx context.Context, prefix string) []*Vocabulary {
 	currentNode := t.Root
 	res := make([]*Vocabulary, 0)
 

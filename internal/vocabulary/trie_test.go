@@ -1,6 +1,7 @@
 package vocabulary_test
 
 import (
+	"context"
 	"testing"
 
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
@@ -27,7 +28,7 @@ func Test_Trie(t *testing.T) {
 		assert.True(t, myTrie.Search("based on my own life and experience"))
 	})
 	t.Run("test suggest", func(t *testing.T) {
-		result := myTrie.Suggest("be")
+		result := myTrie.Suggest(context.Background(), "be")
 		expected := []string{"be cautious", "be conducted", "be hot on somebody's trail"}
 
 		assert.Len(t, result, 3)
