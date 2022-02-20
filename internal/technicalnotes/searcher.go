@@ -1,5 +1,7 @@
 package technicalnotes
 
+import "context"
+
 type Searcher interface {
-	Search(keyword string) (SearchResponse, error)
+	Search(ctx context.Context, keyword string) (SearchResponse, error)
 }

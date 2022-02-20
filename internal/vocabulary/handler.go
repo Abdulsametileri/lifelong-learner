@@ -7,7 +7,6 @@ import (
 )
 
 const (
-	SearchEndPoint  = "/vocabulary/search"
 	SuggestEndPoint = "/vocabulary/suggest/:prefix"
 )
 

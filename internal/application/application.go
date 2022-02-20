@@ -1,6 +1,7 @@
 package application
 
 import (
+	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
 	"os"
 	"os/signal"
 	"syscall"
@@ -19,16 +20,24 @@ type Application struct {
 func New(cfg *config.Config, version string) (*Application, error) {
 	appLogger := createLogger(cfg.LogFormat).With("version", version)
 
-	vocabularyClient, err := createVocabularyClient(cfg.Application.IsGoogleSheetClientEnabled)
+	vClient, err := createVocabularyClient(cfg.Application.IsGoogleSheetClientEnabled)
 	if err != nil {
 		appLogger.Error(err)
 		os.Exit(1)
 	}
-	vocabularyService := vocabulary.NewService(vocabularyClient)
-	vocabularyHandler := vocabulary.NewHandler(vocabularyService)
+	vService := vocabulary.NewService(vClient)
+	vHandler := vocabulary.NewHandler(vService)
+
+	tnClient, err := technicalnotes.InitBreveClient(false, false)
+	if err != nil {
+		appLogger.Error(err)
+	}
+	tnService := technicalnotes.NewService(tnClient)
+	tnHandler := technicalnotes.NewHandler(tnService)
 
 	srv := server.New(cfg.Server, appLogger, []server.RegisterRoutesFunc{
-		vocabularyHandler.RegisterRoutes,
+		vHandler.RegisterRoutes,
+		tnHandler.RegisterRoutes,
 	})
 
 	return &Application{

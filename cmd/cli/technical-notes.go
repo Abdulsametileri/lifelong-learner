@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-	"os"
-	"strconv"
 )
 
 var keyword string
@@ -33,12 +34,12 @@ var technicalNotesCmd = &cobra.Command{
 			refleshIndexData = true
 		}
 
-		client, err := technicalnotes.InitBreveClient(refleshIndexData)
+		client, err := technicalnotes.InitBreveClient(refleshIndexData, true)
 		if err != nil {
 			return errors.Wrap(err, "error when initializing breve client")
 		}
 
-		searchRes, err := client.Search(keyword)
+		searchRes, err := client.Search(nil, keyword)
 		if err != nil {
 			return errors.Wrap(err, "error when searching using breve clinet")
 		}

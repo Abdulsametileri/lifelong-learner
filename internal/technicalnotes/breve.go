@@ -1,13 +1,16 @@
 package technicalnotes
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/blevesearch/bleve/v2"
-	_ "github.com/blevesearch/bleve/v2/config"
-	"github.com/pkg/errors"
 	"os"
 	"strings"
+
+	"github.com/blevesearch/bleve/v2"
+	//nolint:golint
+	_ "github.com/blevesearch/bleve/v2/config"
+	"github.com/pkg/errors"
 )
 
 const (
@@ -19,11 +22,16 @@ const (
 )
 
 type breveClient struct {
-	index bleve.Index
+	index                 bleve.Index
+	StdoutHighlightActive bool
 }
 
-func InitBreveClient(refleshIndexData bool) (Searcher, error) {
-	err := changeDefaultBreveHighlighter()
+func InitBreveClient(refleshIndexData, stdoutHighlightActive bool) (Searcher, error) {
+	bc := breveClient{
+		StdoutHighlightActive: stdoutHighlightActive,
+	}
+
+	err := bc.customBraveFragmentFormatter()
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -32,10 +40,7 @@ func InitBreveClient(refleshIndexData bool) (Searcher, error) {
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
-
-	bc := breveClient{
-		index: index,
-	}
+	bc.index = index
 
 	if refleshIndexData {
 		fmt.Println("Breve index is refreshing")
@@ -48,7 +53,7 @@ func InitBreveClient(refleshIndexData bool) (Searcher, error) {
 	return &bc, nil
 }
 
-func (b *breveClient) Search(keyword string) (SearchResponse, error) {
+func (b *breveClient) Search(ctx context.Context, keyword string) (SearchResponse, error) {
 	query := bleve.NewFuzzyQuery(keyword)
 	searchRequest := bleve.NewSearchRequest(query)
 	searchRequest.Fields = []string{field}
@@ -61,9 +66,28 @@ func (b *breveClient) Search(keyword string) (SearchResponse, error) {
 		return searchRes, err
 	}
 
+	if b.StdoutHighlightActive {
+		return returnResultUsingFragments(res), nil
+	}
+
+	return returnResultUsingRawField(res), nil
+}
+
+func returnResultUsingRawField(res *bleve.SearchResult) (searchRes SearchResponse) {
 	searchRes.TotalTime = res.Took
 	searchRes.TotalResult = res.Total
+	searchRes.Results = []string{}
 
+	for _, hit := range res.Hits {
+		searchRes.Results = append(searchRes.Results, hit.Fields[field].(string))
+	}
+
+	return
+}
+
+func returnResultUsingFragments(res *bleve.SearchResult) (searchRes SearchResponse) {
+	searchRes.TotalTime = res.Took
+	searchRes.TotalResult = res.Total
 	searchRes.Results = []string{}
 
 	for _, hit := range res.Hits {
@@ -76,10 +100,10 @@ func (b *breveClient) Search(keyword string) (SearchResponse, error) {
 		searchRes.Results = append(searchRes.Results, sb.String())
 	}
 
-	return searchRes, nil
+	return
 }
 
-func changeDefaultBreveHighlighter() error {
+func (b *breveClient) customBraveFragmentFormatter() error {
 	_, err := bleve.Config.Cache.DefineFragmenter("short", map[string]interface{}{
 		"type": "simple",
 		"size": fragmentHighlighterLen,
@@ -128,7 +152,7 @@ func (b *breveClient) indexData() error {
 	}
 	for i, note := range notes {
 		b.index.Index(string(i), note)
-		fmt.Println(fmt.Sprintf("%d. doc has been indexed", i+1))
+		fmt.Printf("%d. doc has been indexed\n", i+1)
 	}
 
 	return nil

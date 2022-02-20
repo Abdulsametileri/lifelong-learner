@@ -2,17 +2,18 @@ package technicalnotes
 
 import (
 	"encoding/json"
-	"github.com/pkg/errors"
-	"google.golang.org/api/docs/v1"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/pkg/errors"
+	"google.golang.org/api/docs/v1"
 )
 
 func transformResponse(doc *docs.Document) []Note {
 	docBytes, err := doc.Body.MarshalJSON()
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when marshaling doc vody"))
+		log.Fatal(errors.Wrap(err, "error when marshaling doc body"))
 	}
 	response := GoogleDocResponse{}
 	err = json.Unmarshal(docBytes, &response)
@@ -53,7 +54,7 @@ func transformResponse(doc *docs.Document) []Note {
 func createLocalDataFile(tr []Note) {
 	docBytes, err := json.Marshal(&tr)
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error marshalling doc"))
+		log.Fatal(errors.Wrap(err, "error marshaling doc"))
 	}
 
 	err = os.WriteFile("./internal/technicalnotes/transform.json", docBytes, 0600)

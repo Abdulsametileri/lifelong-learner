@@ -14,4 +14,11 @@ I'm currenty use
 
 # Demo
 
+## Learn CLI With Vocabulary
+
 [![asciicast](https://asciinema.org/a/469829.svg)](https://asciinema.org/a/469829)
+
+## Learn CLI With Technical Book Notes
+
+[![asciicast](https://asciinema.org/a/470326.svg)](https://asciinema.org/a/470326)
+
