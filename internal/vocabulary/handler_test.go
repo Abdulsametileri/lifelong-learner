@@ -2,12 +2,13 @@ package vocabulary_test
 
 import (
 	"encoding/json"
-	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary/mocks"
-	"github.com/golang/mock/gomock"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
+
+	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary/mocks"
+	"github.com/golang/mock/gomock"
 
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 	"github.com/Abdulsametileri/lifelong-learner/pkg/test"
@@ -50,7 +51,7 @@ func TestHandler_Suggest(t *testing.T) {
 	defer res.Body.Close()
 
 	returnedJSON := make([]*vocabulary.Vocabulary, 0)
-	json.NewDecoder(res.Body).Decode(&returnedJSON)
+	_ = json.NewDecoder(res.Body).Decode(&returnedJSON)
 	isEqual := assert.ObjectsAreEqualValues(ret, returnedJSON)
 	assert.True(t, isEqual)
 }

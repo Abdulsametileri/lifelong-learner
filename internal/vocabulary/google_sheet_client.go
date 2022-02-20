@@ -53,10 +53,6 @@ func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix s
 	return vocabularies, nil
 }
 
-func (gsc *GoogleSheetClient) FindMeaningByWord(ctx context.Context, word string) (*Vocabulary, error) {
-	return nil, nil
-}
-
 func transformSheetResponse(resp *sheets.Spreadsheet) []Vocabulary {
 	firstSheet := resp.Sheets[0]
 	rows := firstSheet.Data[0].RowData

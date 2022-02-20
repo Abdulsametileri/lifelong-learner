@@ -2,10 +2,11 @@ package vocabulary_test
 
 import (
 	"context"
-	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
-	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
+
+	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLocalFileClient_SuggestWordsByPrefix(t *testing.T) {

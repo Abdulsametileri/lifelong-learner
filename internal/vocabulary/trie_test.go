@@ -1,8 +1,9 @@
 package vocabulary_test
 
 import (
-	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 	"testing"
+
+	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 
 	"github.com/stretchr/testify/assert"
 )

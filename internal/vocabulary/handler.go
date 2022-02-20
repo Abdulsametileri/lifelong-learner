@@ -2,7 +2,7 @@ package vocabulary
 
 import (
 	"context"
-	"fmt"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -12,7 +12,6 @@ const (
 )
 
 type Service interface {
-	GetMeaningByWord(ctx context.Context, word string) (*Vocabulary, error)
 	SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error)
 }
 
@@ -27,13 +26,7 @@ func NewHandler(service Service) *Handler {
 }
 
 func (h *Handler) RegisterRoutes(app *fiber.App) {
-	app.Get(SearchEndPoint, h.Search)
 	app.Get(SuggestEndPoint, h.Suggest)
-}
-
-func (h *Handler) Search(c *fiber.Ctx) error {
-	fmt.Println("huhu")
-	return nil
 }
 
 func (h *Handler) Suggest(c *fiber.Ctx) error {

@@ -1,11 +1,12 @@
 package main
 
 import (
+	"os"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 var prefix string
@@ -18,7 +19,7 @@ var vocabularyCmd = &cobra.Command{
 	Example: "learn vocabulary --prefix=be",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if prefix == "" {
-			return errors.New("word flags cannot be empty")
+			return errors.New("prefix flags cannot be empty")
 		}
 
 		vocabularyClient, err := createVocabularyClient()
@@ -32,24 +33,28 @@ var vocabularyCmd = &cobra.Command{
 			return err
 		}
 
-		table := tablewriter.NewWriter(os.Stdout)
-		table.SetHeader([]string{"Word", "Meaning", "Sentence"})
-		table.SetHeaderColor(
-			tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
-			tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
-			tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
-		)
-
-		for i := range results {
-			result := results[i]
-			table.Append([]string{result.Word, result.Meaning, result.Sentence})
-			table.SetRowLine(true)
-		}
-
-		table.Render()
+		writeResultsToStdout(results)
 
 		return nil
 	},
+}
+
+func writeResultsToStdout(results []*vocabulary.Vocabulary) {
+	table := tablewriter.NewWriter(os.Stdout)
+	table.SetHeader([]string{"Word", "Meaning", "Sentence"})
+	table.SetHeaderColor(
+		tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
+		tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
+		tablewriter.Colors{tablewriter.BgWhiteColor, tablewriter.BgBlueColor},
+	)
+
+	for i := range results {
+		result := results[i]
+		table.Append([]string{result.Word, result.Meaning, result.Sentence})
+		table.SetRowLine(true)
+	}
+
+	table.Render()
 }
 
 func createVocabularyClient() (vocabulary.Client, error) {
