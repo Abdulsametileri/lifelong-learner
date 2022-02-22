@@ -13,6 +13,14 @@ I'm currenty use
 * Google-Tables for `English Vocabulary`
 * Google-Documents for `Technical Book Notes`
 
+### TODO
+
+- [ ] Add vocabulary module more tests
+- [ ] Integrate frontend and deploy heroku
+- [ ] Pre-commit
+- [ ] Pipeline (test, lint steps)
+- [ ] Integration Test
+
 # Demo
 
 # CLI
