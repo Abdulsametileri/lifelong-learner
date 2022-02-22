@@ -7,6 +7,7 @@ build-cli:
 generate-mocks:
 	mockgen -source internal/vocabulary/service.go -destination internal/vocabulary/mocks/client.go -package mocks Client
 	mockgen -source internal/vocabulary/handler.go -destination internal/vocabulary/mocks/service.go -package mocks Service
+	mockgen -source internal/technicalnotes/searcher.go -destination cmd/cli/mocks/searcher.go -package mocks Searcher
 
 # related to technicalnotes
 groupby-paragraph-style:

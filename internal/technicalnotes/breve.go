@@ -26,7 +26,7 @@ type breveClient struct {
 	StdoutHighlightActive bool
 }
 
-func InitBreveClient(refleshIndexData, stdoutHighlightActive bool) (Searcher, error) {
+func InitBreveClient(stdoutHighlightActive bool) (Searcher, error) {
 	bc := breveClient{
 		StdoutHighlightActive: stdoutHighlightActive,
 	}
@@ -42,15 +42,13 @@ func InitBreveClient(refleshIndexData, stdoutHighlightActive bool) (Searcher, er
 	}
 	bc.index = index
 
-	if refleshIndexData {
-		fmt.Println("Breve index is refreshing")
-		err = bc.indexData()
-		if err != nil {
-			return nil, err
-		}
-	}
-
 	return &bc, nil
+}
+
+func (b *breveClient) RefleshIndex() error {
+	fmt.Println("Breve index is refreshing")
+	err := b.indexData()
+	return err
 }
 
 func (b *breveClient) Search(ctx context.Context, keyword string) (SearchResponse, error) {

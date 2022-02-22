@@ -2,7 +2,6 @@ package technicalnotes
 
 import (
 	"encoding/json"
-	"log"
 	"os"
 	"strings"
 
@@ -10,15 +9,15 @@ import (
 	"google.golang.org/api/docs/v1"
 )
 
-func transformResponse(doc *docs.Document) []Note {
+func transformResponse(doc *docs.Document) ([]Note, error) {
 	docBytes, err := doc.Body.MarshalJSON()
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when marshaling doc body"))
+		return nil, errors.Wrap(err, "error when marshaling doc body")
 	}
 	response := GoogleDocResponse{}
 	err = json.Unmarshal(docBytes, &response)
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when unmarshaling the transform response"))
+		return nil, errors.Wrap(err, "error when unmarshaling the transform response")
 	}
 
 	transform := make([]Note, 0, len(response.Content))
@@ -48,17 +47,19 @@ func transformResponse(doc *docs.Document) []Note {
 		})
 	}
 
-	return transform
+	return transform, nil
 }
 
-func createLocalDataFile(tr []Note) {
+func createLocalDataFile(tr []Note) error {
 	docBytes, err := json.Marshal(&tr)
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error marshaling doc"))
+		return errors.Wrap(err, "error marshaling doc")
 	}
 
-	err = os.WriteFile("./internal/technicalnotes/transform.json", docBytes, 0600)
+	err = os.WriteFile("./internal/technicalnotes/transform.json", docBytes, 0644)
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "error when creating local json file"))
+		return errors.Wrap(err, "error when creating local json file")
 	}
+
+	return nil
 }

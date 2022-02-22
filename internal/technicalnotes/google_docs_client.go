@@ -11,7 +11,10 @@ import (
 	"google.golang.org/api/option"
 )
 
-type GoogleDocsClient struct{}
+type GoogleDocsClient struct {
+	svc   *docs.Service
+	docID string
+}
 
 func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
 	b, err := ioutil.ReadFile("./internal/technicalnotes/credentials.json")
@@ -30,12 +33,19 @@ func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
 		return nil, errors.Wrap(err, "error when initializing google docs service")
 	}
 
-	doc, err := svc.Documents.Get(docID).Do()
+	return &GoogleDocsClient{svc: svc, docID: docID}, nil
+}
+
+func (gdc *GoogleDocsClient) CreateLocalDataFile() error {
+	doc, err := gdc.svc.Documents.Get(gdc.docID).Do()
 	if err != nil {
-		return nil, errors.Wrap(err, "unable to get specified document")
+		return errors.Wrap(err, "unable to get specified document")
 	}
 
-	createLocalDataFile(transformResponse(doc))
+	transformed, err := transformResponse(doc)
+	if err != nil {
+		return err
+	}
 
-	return nil, nil
+	return createLocalDataFile(transformed)
 }
