@@ -149,7 +149,7 @@ func (b *breveClient) indexData() error {
 		return errors.Wrap(err, "error when unmarshalling notes")
 	}
 	for i, note := range notes {
-		b.index.Index(string(i), note)
+		b.index.Index(fmt.Sprint(i), note)
 		fmt.Printf("%d. doc has been indexed\n", i+1)
 	}
 

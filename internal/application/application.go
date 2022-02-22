@@ -28,7 +28,7 @@ func New(cfg *config.Config, version string) (*Application, error) {
 	vService := vocabulary.NewService(vClient)
 	vHandler := vocabulary.NewHandler(vService)
 
-	tnClient, err := technicalnotes.InitBreveClient(false, false)
+	tnClient, err := technicalnotes.InitBreveClient(false)
 	if err != nil {
 		appLogger.Error(err)
 	}

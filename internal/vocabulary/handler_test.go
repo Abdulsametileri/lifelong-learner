@@ -15,18 +15,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHandler_Search(t *testing.T) {
-	app := test.NewFiberApp()
-
-	handler := vocabulary.NewHandler(nil)
-	handler.RegisterRoutes(app)
-
-	req := httptest.NewRequest(http.MethodGet, vocabulary.SearchEndPoint, http.NoBody)
-	res, err := app.Test(req)
-	assert.Nil(t, err)
-	defer res.Body.Close()
-}
-
 func TestHandler_Suggest(t *testing.T) {
 	mockService := mocks.NewMockService(gomock.NewController(t))
 	ret := make([]*vocabulary.Vocabulary, 0)

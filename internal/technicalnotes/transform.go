@@ -50,13 +50,13 @@ func transformResponse(doc *docs.Document) ([]Note, error) {
 	return transform, nil
 }
 
-func createLocalDataFile(tr []Note) error {
+func createLocalDataFile(dataFilePath string, tr []Note) error {
 	docBytes, err := json.Marshal(&tr)
 	if err != nil {
 		return errors.Wrap(err, "error marshaling doc")
 	}
 
-	err = os.WriteFile("./internal/technicalnotes/transform.json", docBytes, 0644)
+	err = os.WriteFile(dataFilePath, docBytes, 0644)
 	if err != nil {
 		return errors.Wrap(err, "error when creating local json file")
 	}

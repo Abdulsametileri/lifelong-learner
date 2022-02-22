@@ -1,5 +1,10 @@
 .idea/
-./learn
+learn
+unit_coverage.html
+unit_coverage.out
 ./internal/technicalnotes/credentials.json
 ./internal/technicalnotes/data.json
 ./internal/technicalnotes/token.json
+./internal/technicalnotes/transform.json
+./internal/technicalnotes/notes-breve/*
+./internal/technicalnotes/notes-breve/store/*

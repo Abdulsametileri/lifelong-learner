@@ -17,7 +17,7 @@ var keyword string
 var isGoogleDocClientEnabled bool
 
 type Client interface {
-	CreateLocalDataFile() error
+	GetDocumentAndWriteResultToFile() error
 }
 
 type TechnicalNoteCommandRunner struct {
@@ -53,7 +53,7 @@ var technicalNotesCmd = &cobra.Command{
 				return err
 			}
 			tncr.GoogleClient = client
-			err = tncr.GoogleClient.CreateLocalDataFile()
+			err = tncr.GoogleClient.GetDocumentAndWriteResultToFile()
 
 			err = tncr.Searcher.RefleshIndex()
 			if err != nil {

@@ -2,13 +2,11 @@ package technicalnotes
 
 import (
 	"context"
-	"io/ioutil"
-	"log"
-
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/docs/v1"
 	"google.golang.org/api/option"
+	"io/ioutil"
 )
 
 type GoogleDocsClient struct {
@@ -19,12 +17,12 @@ type GoogleDocsClient struct {
 func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
 	b, err := ioutil.ReadFile("./internal/technicalnotes/credentials.json")
 	if err != nil {
-		log.Fatalf("Unable to read client secret file: %v", err)
+		return nil, errors.Wrap(err, "Unable to read client secret file")
 	}
 
 	config, err := google.ConfigFromJSON(b, "https://www.googleapis.com/auth/documents.readonly")
 	if err != nil {
-		log.Fatalf("Unable to parse client secret file to config: %v", err)
+		return nil, errors.Wrap(err, "Unable to parse client secret file to config")
 	}
 	client := getHTTPClient(config)
 
@@ -36,16 +34,26 @@ func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
 	return &GoogleDocsClient{svc: svc, docID: docID}, nil
 }
 
-func (gdc *GoogleDocsClient) CreateLocalDataFile() error {
+func (gdc *GoogleDocsClient) GetDocumentAndWriteResultToFile() error {
+	doc, err := gdc.GetDocument()
+	if err != nil {
+		return err
+	}
+	return gdc.CreateLocalDataFile(doc)
+}
+
+func (gdc *GoogleDocsClient) GetDocument() (*docs.Document, error) {
 	doc, err := gdc.svc.Documents.Get(gdc.docID).Do()
 	if err != nil {
-		return errors.Wrap(err, "unable to get specified document")
+		return nil, errors.Wrap(err, "unable to get specified document")
 	}
+	return doc, nil
+}
 
+func (gdc *GoogleDocsClient) CreateLocalDataFile(doc *docs.Document) error {
 	transformed, err := transformResponse(doc)
 	if err != nil {
 		return err
 	}
-
-	return createLocalDataFile(transformed)
+	return createLocalDataFile(dataPath, transformed)
 }
