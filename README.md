@@ -13,6 +13,29 @@ I'm currenty use
 * Google-Tables for `English Vocabulary`
 * Google-Documents for `Technical Book Notes`
 
+# Integration With Google Sheet
+Google sheet is based on API_KEY, you must create using google console.
+
+In order to implement sdk correctly you must follow `https://developers.google.com/sheets/api/quickstart/go` this guide.
+
+In this project's vocabulary module, you have to export
+```
+export SHEETS_API_KEY=AIza.....
+export SPREADSHEET_ID=1T1hg5....
+```
+before running the application.
+
+# Integration With Google Doc
+Google doc is not based on API KEY unfortunately you must create oauth client on google console,
+download the related credentials.json file.
+
+You can implement SDK using this guide `https://developers.google.com/docs/api/quickstart/go`
+
+In this project's technical book module, you have to export
+```
+export DOC_ID=1m4LO-...
+```
+
 ### TODO
 
 - [ ] Add vocabulary module more tests
