@@ -12,10 +12,12 @@ import (
 )
 
 type GoogleSheetClient struct {
-	Trie *Trie
+	Trie          *Trie
+	svc           *sheets.Service
+	spreadSheetID string
 }
 
-func NewGoogleSheetClient(apiKey, spreadSheetID string, isVocabularyFileWillCreate bool) (*GoogleSheetClient, error) {
+func NewGoogleSheetClient(apiKey, spreadSheetID string) (*GoogleSheetClient, error) {
 	svc, err := sheets.NewService(
 		context.Background(),
 		option.WithAPIKey(apiKey),
@@ -24,36 +26,25 @@ func NewGoogleSheetClient(apiKey, spreadSheetID string, isVocabularyFileWillCrea
 		return nil, errors.Wrap(err, "error when google sheets new service")
 	}
 
-	resp, err := svc.Spreadsheets.
-		Get(spreadSheetID).
+	return &GoogleSheetClient{
+		spreadSheetID: spreadSheetID,
+		Trie:          InitTrie(),
+		svc:           svc,
+	}, nil
+}
+
+func (gsc *GoogleSheetClient) GetSpreadsheet() (*sheets.Spreadsheet, error) {
+	resp, err := gsc.svc.Spreadsheets.
+		Get(gsc.spreadSheetID).
 		IncludeGridData(true).
 		Do()
 	if err != nil {
 		return nil, errors.Wrap(err, "error when reading values from spreadsheet")
 	}
-
-	vocabularies := transformSheetResponse(resp)
-
-	if isVocabularyFileWillCreate {
-		return nil, createVocabularyFile(vocabularies)
-	}
-
-	tree := InitTrie()
-	for _, voc := range vocabularies {
-		tree.Insert(voc)
-	}
-
-	return &GoogleSheetClient{
-		Trie: tree,
-	}, nil
+	return resp, nil
 }
 
-func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
-	vocabularies := gsc.Trie.Suggest(ctx, prefix)
-	return vocabularies, nil
-}
-
-func transformSheetResponse(resp *sheets.Spreadsheet) []Vocabulary {
+func (gsc *GoogleSheetClient) TransformGoogleSpreadsheetResponse(resp *sheets.Spreadsheet) []Vocabulary {
 	firstSheet := resp.Sheets[0]
 	rows := firstSheet.Data[0].RowData
 
@@ -88,8 +79,19 @@ func transformSheetResponse(resp *sheets.Spreadsheet) []Vocabulary {
 	return vocabularies
 }
 
-func createVocabularyFile(vocabularies []Vocabulary) error {
-	vocabularyFile, err := os.Create("internal/vocabulary/vocabulary.json")
+func (gsc *GoogleSheetClient) FillTrieWithVocabularies(voc []Vocabulary) {
+	for i := range voc {
+		gsc.Trie.Insert(voc[i])
+	}
+}
+
+func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+	vocabularies := gsc.Trie.Suggest(ctx, prefix)
+	return vocabularies, nil
+}
+
+func (gsc *GoogleSheetClient) CreateVocabularyFile(destPath string, vocabularies []Vocabulary) error {
+	vocabularyFile, err := os.Create(destPath)
 	if err != nil {
 		return errors.Wrap(err, "error when creating vocabulary json")
 	}

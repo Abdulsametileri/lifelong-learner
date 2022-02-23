@@ -77,7 +77,6 @@ func createVocabularyClient(isGoogleSheetClientEnabled bool) (vocabulary.Client,
 		googleSheetsAPIClient, err := vocabulary.NewGoogleSheetClient(
 			os.Getenv("SHEETS_API_KEY"),
 			os.Getenv("SPREADSHEET_ID"),
-			false,
 		)
 		return googleSheetsAPIClient, err
 	}

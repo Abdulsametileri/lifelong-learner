@@ -38,7 +38,7 @@ export DOC_ID=1m4LO-...
 
 ### TODO
 
-- [ ] Add vocabulary module more tests
+- [x] Add vocabulary module more tests
 - [ ] Integrate frontend and deploy heroku
 - [ ] Pre-commit
 - [ ] Pipeline (test, lint steps)

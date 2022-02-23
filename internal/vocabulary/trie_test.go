@@ -27,7 +27,7 @@ func Test_Trie(t *testing.T) {
 		assert.False(t, myTrie.Search("notExist"))
 		assert.True(t, myTrie.Search("based on my own life and experience"))
 	})
-	t.Run("test suggest", func(t *testing.T) {
+	t.Run("when suggest return results", func(t *testing.T) {
 		result := myTrie.Suggest(context.Background(), "be")
 		expected := []string{"be cautious", "be conducted", "be hot on somebody's trail"}
 
@@ -41,5 +41,9 @@ func Test_Trie(t *testing.T) {
 		for _, exp := range expected {
 			assert.True(t, resmap[exp])
 		}
+	})
+	t.Run("when suggest not results", func(t *testing.T) {
+		result := myTrie.Suggest(context.Background(), "abcdef")
+		assert.Len(t, result, 0)
 	})
 }

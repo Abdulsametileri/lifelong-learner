@@ -12,7 +12,7 @@ import (
 	"testing"
 )
 
-func Test_Validate(t *testing.T) {
+func TestTechnicalNoteCommandRunner_Validate(t *testing.T) {
 	t.Run("when related parameters not valid, it should return error", func(t *testing.T) {
 		tncr := TechnicalNoteCommandRunner{Keyword: ""}
 		err := tncr.Validate()
@@ -26,7 +26,7 @@ func Test_Validate(t *testing.T) {
 	})
 }
 
-func Test_Run(t *testing.T) {
+func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
 	t.Run("when searcher has problem, it should return error", func(t *testing.T) {
 		searchTerm := "scalability"
 		search := NewMockSearcher(gomock.NewController(t))
@@ -54,7 +54,7 @@ func Test_Run(t *testing.T) {
 	})
 }
 
-func Test_DisplayResults(t *testing.T) {
+func TestTechnicalNoteCommandRunner_DisplayResults(t *testing.T) {
 	tncr := TechnicalNoteCommandRunner{}
 
 	var buf bytes.Buffer

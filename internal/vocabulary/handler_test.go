@@ -2,6 +2,8 @@ package vocabulary_test
 
 import (
 	"encoding/json"
+	"github.com/gofiber/fiber/v2"
+	"github.com/pkg/errors"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -42,4 +44,23 @@ func TestHandler_Suggest(t *testing.T) {
 	_ = json.NewDecoder(res.Body).Decode(&returnedJSON)
 	isEqual := assert.ObjectsAreEqualValues(ret, returnedJSON)
 	assert.True(t, isEqual)
+}
+
+func TestHandler_Suggest_HasProblem(t *testing.T) {
+	mockService := mocks.NewMockService(gomock.NewController(t))
+	mockService.
+		EXPECT().
+		SuggestWordsByPrefix(gomock.Any(), "ma").
+		Return([]*vocabulary.Vocabulary{}, errors.New("problem occurred on suggest service")).
+		Times(1)
+	app := test.NewFiberApp()
+	handler := vocabulary.NewHandler(mockService)
+	handler.RegisterRoutes(app)
+
+	req := httptest.NewRequest(http.MethodGet, strings.Replace(vocabulary.SuggestEndPoint, ":prefix", "ma", 1), http.NoBody)
+	res, err := app.Test(req)
+	assert.Nil(t, err)
+	defer res.Body.Close()
+
+	assert.Equal(t, fiber.StatusInternalServerError, res.StatusCode)
 }
