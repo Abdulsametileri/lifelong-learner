@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"io"
 	"os"
 
@@ -37,8 +38,7 @@ var vocabularyCmd = &cobra.Command{
 		}
 		vcr.Client = vocabularyClient
 
-		vocabularyService := vocabulary.NewService(vocabularyClient)
-		results, err := vocabularyService.SuggestWordsByPrefix(cmd.Context(), prefix)
+		results, err := vcr.Run(cmd.Context())
 		if err != nil {
 			return err
 		}
@@ -54,6 +54,14 @@ func (vcr *VocabularyCommandRunner) Validate() error {
 		return errors.New("prefix flags cannot be empty")
 	}
 	return nil
+}
+
+func (vcr *VocabularyCommandRunner) Run(ctx context.Context) ([]*vocabulary.Vocabulary, error) {
+	results, err := vcr.Client.SuggestWordsByPrefix(ctx, vcr.Prefix)
+	if err != nil {
+		return nil, err
+	}
+	return results, nil
 }
 
 func (vcr *VocabularyCommandRunner) DisplayResults(writer io.Writer, results []*vocabulary.Vocabulary) {
