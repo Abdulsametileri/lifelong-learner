@@ -56,7 +56,7 @@ func createLocalDataFile(dataFilePath string, tr []Note) error {
 		return errors.Wrap(err, "error marshaling doc")
 	}
 
-	err = os.WriteFile(dataFilePath, docBytes, 0644)
+	err = os.WriteFile(dataFilePath, docBytes, 0600)
 	if err != nil {
 		return errors.Wrap(err, "error when creating local json file")
 	}

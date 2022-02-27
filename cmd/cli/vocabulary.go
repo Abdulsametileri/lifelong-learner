@@ -56,7 +56,7 @@ func (vcr *VocabularyCommandRunner) Validate() error {
 	return nil
 }
 
-func (vcr *VocabularyCommandRunner) Run(ctx context.Context) ([]*vocabulary.Vocabulary, error) {
+func (vcr *VocabularyCommandRunner) Run(ctx context.Context) ([]vocabulary.Vocabulary, error) {
 	results, err := vcr.Client.SuggestWordsByPrefix(ctx, vcr.Prefix)
 	if err != nil {
 		return nil, err
@@ -64,7 +64,7 @@ func (vcr *VocabularyCommandRunner) Run(ctx context.Context) ([]*vocabulary.Voca
 	return results, nil
 }
 
-func (vcr *VocabularyCommandRunner) DisplayResults(writer io.Writer, results []*vocabulary.Vocabulary) {
+func (vcr *VocabularyCommandRunner) DisplayResults(writer io.Writer, results []vocabulary.Vocabulary) {
 	table := tablewriter.NewWriter(writer)
 	table.SetHeader([]string{"Word", "Meaning", "Sentence"})
 	table.SetHeaderColor(

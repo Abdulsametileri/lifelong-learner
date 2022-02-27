@@ -39,7 +39,7 @@ func saveToken(path string, token *oauth2.Token) {
 		log.Fatalf("Unable to cache OAuth token: %v", err)
 	}
 	defer f.Close()
-	json.NewEncoder(f).Encode(token)
+	_ = json.NewEncoder(f).Encode(token)
 }
 
 func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {

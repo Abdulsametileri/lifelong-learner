@@ -2,8 +2,9 @@ package technicalnotes
 
 import (
 	"context"
-	"github.com/gofiber/fiber/v2"
 	"net/http"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 const (

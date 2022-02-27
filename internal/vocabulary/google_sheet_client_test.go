@@ -2,10 +2,11 @@ package vocabulary
 
 import (
 	"encoding/json"
-	"github.com/stretchr/testify/assert"
-	"google.golang.org/api/sheets/v4"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"google.golang.org/api/sheets/v4"
 )
 
 func TestGoogleSheetClient_TransformGoogleSpreadsheetResponse(t *testing.T) {

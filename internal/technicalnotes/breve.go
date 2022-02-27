@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/blevesearch/bleve/v2"
-	//nolint:golint
-	_ "github.com/blevesearch/bleve/v2/config"
+
+	_ "github.com/blevesearch/bleve/v2/config" //nolint:revive
 	"github.com/pkg/errors"
 )
 
@@ -149,7 +149,7 @@ func (b *breveClient) indexData() error {
 		return errors.Wrap(err, "error when unmarshalling notes")
 	}
 	for i, note := range notes {
-		b.index.Index(fmt.Sprint(i), note)
+		_ = b.index.Index(fmt.Sprint(i), note)
 		fmt.Printf("%d. doc has been indexed\n", i+1)
 	}
 

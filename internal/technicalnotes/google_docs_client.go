@@ -2,11 +2,12 @@ package technicalnotes
 
 import (
 	"context"
+	"io/ioutil"
+
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/docs/v1"
 	"google.golang.org/api/option"
-	"io/ioutil"
 )
 
 type GoogleDocsClient struct {

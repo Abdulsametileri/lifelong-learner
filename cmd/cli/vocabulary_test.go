@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"strings"
+	"testing"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 	"github.com/golang/mock/gomock"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
-	"strings"
-	"testing"
 )
 
 func TestVocabularyCommandRunner_Validate(t *testing.T) {
@@ -29,7 +30,7 @@ func TestVocabularyCommandRunner_Run(t *testing.T) {
 	t.Run("when client is failed, it should return error", func(t *testing.T) {
 		mockClient := NewMockClient(gomock.NewController(t))
 
-		ret := make([]*vocabulary.Vocabulary, 0)
+		ret := make([]vocabulary.Vocabulary, 0)
 		mockClient.
 			EXPECT().
 			SuggestWordsByPrefix(gomock.Any(), "ma").
@@ -47,8 +48,8 @@ func TestVocabularyCommandRunner_Run(t *testing.T) {
 	t.Run("when client work properly, it should return results", func(t *testing.T) {
 		mockClient := NewMockClient(gomock.NewController(t))
 
-		ret := make([]*vocabulary.Vocabulary, 0)
-		ret = append(ret, &vocabulary.Vocabulary{
+		ret := make([]vocabulary.Vocabulary, 0)
+		ret = append(ret, vocabulary.Vocabulary{
 			Word:     "w1",
 			Meaning:  "m1",
 			Sentence: "s1",
@@ -75,7 +76,7 @@ func TestVocabularyCommandRunner_DisplayResults(t *testing.T) {
 	vcr := VocabularyCommandRunner{}
 
 	var buf bytes.Buffer
-	vocabularies := []*vocabulary.Vocabulary{
+	vocabularies := []vocabulary.Vocabulary{
 		{
 			Word:     "manifest",
 			Meaning:  "açıkca göstermek",

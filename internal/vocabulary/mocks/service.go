@@ -6,6 +6,7 @@ package mocks
 
 import (
 	context "context"
+	io "io"
 	reflect "reflect"
 
 	vocabulary "github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
@@ -36,10 +37,10 @@ func (m *MockService) EXPECT() *MockServiceMockRecorder {
 }
 
 // SuggestWordsByPrefix mocks base method.
-func (m *MockService) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*vocabulary.Vocabulary, error) {
+func (m *MockService) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]vocabulary.Vocabulary, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SuggestWordsByPrefix", ctx, prefix)
-	ret0, _ := ret[0].([]*vocabulary.Vocabulary)
+	ret0, _ := ret[0].([]vocabulary.Vocabulary)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -48,4 +49,41 @@ func (m *MockService) SuggestWordsByPrefix(ctx context.Context, prefix string) (
 func (mr *MockServiceMockRecorder) SuggestWordsByPrefix(ctx, prefix interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SuggestWordsByPrefix", reflect.TypeOf((*MockService)(nil).SuggestWordsByPrefix), ctx, prefix)
+}
+
+// MockHTMLExecuter is a mock of HTMLWrapper interface.
+type MockHTMLExecuter struct {
+	ctrl     *gomock.Controller
+	recorder *MockHTMLExecuterMockRecorder
+}
+
+// MockHTMLExecuterMockRecorder is the mock recorder for MockHTMLExecuter.
+type MockHTMLExecuterMockRecorder struct {
+	mock *MockHTMLExecuter
+}
+
+// NewMockHTMLExecuter creates a new mock instance.
+func NewMockHTMLExecuter(ctrl *gomock.Controller) *MockHTMLExecuter {
+	mock := &MockHTMLExecuter{ctrl: ctrl}
+	mock.recorder = &MockHTMLExecuterMockRecorder{mock}
+	return mock
+}
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockHTMLExecuter) EXPECT() *MockHTMLExecuterMockRecorder {
+	return m.recorder
+}
+
+// Execute mocks base method.
+func (m *MockHTMLExecuter) Execute(wr io.Writer, data interface{}) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Execute", wr, data)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Execute indicates an expected call of Execute.
+func (mr *MockHTMLExecuterMockRecorder) Execute(wr, data interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Execute", reflect.TypeOf((*MockHTMLExecuter)(nil).Execute), wr, data)
 }

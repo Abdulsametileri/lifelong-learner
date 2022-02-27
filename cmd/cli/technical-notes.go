@@ -54,7 +54,9 @@ var technicalNotesCmd = &cobra.Command{
 			}
 			tncr.GoogleClient = client
 			err = tncr.GoogleClient.GetDocumentAndWriteResultToFile()
-
+			if err != nil {
+				return err
+			}
 			err = tncr.Searcher.RefleshIndex()
 			if err != nil {
 				return err

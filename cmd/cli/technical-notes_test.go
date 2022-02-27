@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"strings"
+	"testing"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
 	"github.com/golang/mock/gomock"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
-	"strings"
-	"testing"
 )
 
 func TestTechnicalNoteCommandRunner_Validate(t *testing.T) {
@@ -20,15 +21,14 @@ func TestTechnicalNoteCommandRunner_Validate(t *testing.T) {
 	})
 	t.Run("when related parameters is valid, it should return nil", func(t *testing.T) {
 		tncr := TechnicalNoteCommandRunner{Keyword: "valid"}
-		keyword = "scalability"
 		err := tncr.Validate()
 		assert.Nil(t, err)
 	})
 }
 
 func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
+	const searchTerm = "scalability"
 	t.Run("when searcher has problem, it should return error", func(t *testing.T) {
-		searchTerm := "scalability"
 		search := NewMockSearcher(gomock.NewController(t))
 		search.
 			EXPECT().
@@ -40,7 +40,6 @@ func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
 		assert.Error(t, err)
 	})
 	t.Run("when searcher works properly, it should return correct response", func(t *testing.T) {
-		searchTerm := "scalability"
 		search := NewMockSearcher(gomock.NewController(t))
 		search.
 			EXPECT().

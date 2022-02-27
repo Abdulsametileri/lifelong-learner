@@ -33,7 +33,7 @@ func NewLocalFileClient(filePath string) (*LocalFileClient, error) {
 	}, nil
 }
 
-func (lfc *LocalFileClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+func (lfc *LocalFileClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]Vocabulary, error) {
 	vocabularies := lfc.Trie.Suggest(ctx, prefix)
 	return vocabularies, nil
 }

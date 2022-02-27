@@ -1,10 +1,12 @@
 package application
 
 import (
-	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
+	"github.com/Abdulsametileri/lifelong-learner/pkg/htmlwrapper"
 
 	"github.com/Abdulsametileri/lifelong-learner/internal/config"
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
@@ -25,8 +27,10 @@ func New(cfg *config.Config, version string) (*Application, error) {
 		appLogger.Error(err)
 		os.Exit(1)
 	}
+
+	htmlWrapper := htmlwrapper.NewGOHTMLWrapper(vocabulary.LayoutFilePath)
 	vService := vocabulary.NewService(vClient)
-	vHandler := vocabulary.NewHandler(vService)
+	vHandler := vocabulary.NewHandler(htmlWrapper, vService)
 
 	tnClient, err := technicalnotes.InitBreveClient(false)
 	if err != nil {

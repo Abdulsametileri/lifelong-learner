@@ -85,7 +85,7 @@ func (gsc *GoogleSheetClient) FillTrieWithVocabularies(voc []Vocabulary) {
 	}
 }
 
-func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+func (gsc *GoogleSheetClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]Vocabulary, error) {
 	vocabularies := gsc.Trie.Suggest(ctx, prefix)
 	return vocabularies, nil
 }

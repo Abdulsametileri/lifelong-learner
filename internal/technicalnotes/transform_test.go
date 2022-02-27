@@ -2,10 +2,11 @@ package technicalnotes
 
 import (
 	"encoding/json"
-	"github.com/stretchr/testify/assert"
-	"google.golang.org/api/docs/v1"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"google.golang.org/api/docs/v1"
 )
 
 func Test_TransformResponse(t *testing.T) {

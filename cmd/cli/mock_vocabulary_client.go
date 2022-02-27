@@ -36,10 +36,10 @@ func (m *MockClient) EXPECT() *MockClientMockRecorder {
 }
 
 // SuggestWordsByPrefix mocks base method.
-func (m *MockClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*vocabulary.Vocabulary, error) {
+func (m *MockClient) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]vocabulary.Vocabulary, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SuggestWordsByPrefix", ctx, prefix)
-	ret0, _ := ret[0].([]*vocabulary.Vocabulary)
+	ret0, _ := ret[0].([]vocabulary.Vocabulary)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

@@ -23,7 +23,7 @@ func TestDefaultService_SuggestWordsByPrefix(t *testing.T) {
 		mockRepository.
 			EXPECT().
 			SuggestWordsByPrefix(gomock.Any(), "be").
-			Return([]*vocabulary.Vocabulary{}, nil).
+			Return([]vocabulary.Vocabulary{}, nil).
 			Times(1)
 
 		svc := vocabulary.NewService(mockRepository)

@@ -12,10 +12,11 @@ build-cli:
 	go build -o learn cmd/cli/*
 
 generate-mocks:
-	mockgen -source internal/vocabulary/service.go -destination internal/vocabulary/mocks/client.go -package mocks Client
 	mockgen -source internal/vocabulary/handler.go -destination internal/vocabulary/mocks/service.go -package mocks Service
-	mockgen -source internal/technicalnotes/searcher.go -destination cmd/cli/mock_searcher.go -package main Searcher
+	mockgen -source internal/vocabulary/handler.go -destination internal/vocabulary/mocks/htmlwrapper.go -package mocks HTMLWrapper
+	mockgen -source internal/vocabulary/service.go -destination internal/vocabulary/mocks/client.go -package mocks Client
 	mockgen -source internal/vocabulary/service.go -destination cmd/cli/mock_vocabulary_client.go -package main Client
+	mockgen -source internal/technicalnotes/searcher.go -destination cmd/cli/mock_searcher.go -package main Searcher
 
 # related to technicalnotes
 groupby-paragraph-style:

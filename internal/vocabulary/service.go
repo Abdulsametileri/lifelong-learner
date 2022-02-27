@@ -5,7 +5,7 @@ import (
 )
 
 type Client interface {
-	SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error)
+	SuggestWordsByPrefix(ctx context.Context, prefix string) ([]Vocabulary, error)
 }
 
 type DefaultService struct {
@@ -16,7 +16,7 @@ func NewService(repository Client) *DefaultService {
 	return &DefaultService{client: repository}
 }
 
-func (s *DefaultService) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]*Vocabulary, error) {
+func (s *DefaultService) SuggestWordsByPrefix(ctx context.Context, prefix string) ([]Vocabulary, error) {
 	if prefix == "" {
 		return nil, ErrFieldIsEmpty("Prefix")
 	}
