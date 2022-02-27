@@ -109,7 +109,7 @@ Example Response:
 
 - [x] Add vocabulary module more tests
 - [ ] Integrate frontend and deploy heroku
-- [ ] Pre-commit
+- [x] Pre-commit
 - [ ] Pipeline (test, lint steps)
 - [ ] Integration Test
 

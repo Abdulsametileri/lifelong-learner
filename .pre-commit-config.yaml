@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: 03770b120e9a4dddcaf3662059ac0948e97c1825
+    hooks:
+      - id: my-cmd-mod
+        name: make file
+        alias: go-test-mod
+        args: [ make, unit-test ]
+
+  - repo: https://github.com/golangci/golangci-lint
+    rev: 30c6166b08117b0b19ec44c26c7e97c1506656ba
+    hooks:
+      - id: golangci-lint
+        entry: golangci-lint run -c golangci.yml -v --fix
+        stages:
+          - commit

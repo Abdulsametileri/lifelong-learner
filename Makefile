@@ -11,6 +11,12 @@ unit-coverage-html:
 build-cli:
 	go build -o learn cmd/cli/*
 
+precommit-install:
+	pre-commit install
+
+precommit-run:
+	pre-commit run --all-files
+
 generate-mocks:
 	mockgen -source internal/vocabulary/handler.go -destination internal/vocabulary/mocks/service.go -package mocks Service
 	mockgen -source internal/vocabulary/handler.go -destination internal/vocabulary/mocks/htmlwrapper.go -package mocks HTMLWrapper

@@ -88,8 +88,8 @@ func TestVocabularyCommandRunner_DisplayResults(t *testing.T) {
 	output := buf.String()
 
 	for _, voc := range vocabularies {
-		assert.True(t, strings.Contains(output, voc.Word), fmt.Sprintf(`Output="%s" not include word="%s"`, output, voc.Word))
-		assert.True(t, strings.Contains(output, voc.Meaning), fmt.Sprintf(`Output="%s" not include meaning="%s"`, output, voc.Meaning))
-		assert.True(t, strings.Contains(output, voc.Sentence), fmt.Sprintf(`Output="%s" not include sentence="%s"`, output, voc.Sentence))
+		assert.True(t, strings.Contains(output, voc.Word), fmt.Sprintf(`Output=%q not include word=%q`, output, voc.Word))
+		assert.True(t, strings.Contains(output, voc.Meaning), fmt.Sprintf(`Output=%q not include meaning=%q`, output, voc.Meaning))
+		assert.True(t, strings.Contains(output, voc.Sentence), fmt.Sprintf(`Output=%q not include sentence=%q`, output, voc.Sentence))
 	}
 }

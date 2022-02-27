@@ -74,6 +74,6 @@ func TestTechnicalNoteCommandRunner_DisplayResults(t *testing.T) {
 	output := buf.String()
 
 	for _, res := range results {
-		assert.True(t, strings.Contains(output, res), fmt.Sprintf(`Output="%s" not include res="%s"`, output, res))
+		assert.True(t, strings.Contains(output, res), fmt.Sprintf(`Output=%q not include res=%q`, output, res))
 	}
 }

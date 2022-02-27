@@ -2,7 +2,7 @@ package technicalnotes
 
 import (
 	"context"
-	"io/ioutil"
+	"os"
 
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2/google"
@@ -16,7 +16,7 @@ type GoogleDocsClient struct {
 }
 
 func NewGoogleDocsClient(docID string) (*GoogleDocsClient, error) {
-	b, err := ioutil.ReadFile("./internal/technicalnotes/credentials.json")
+	b, err := os.ReadFile("./internal/technicalnotes/credentials.json")
 	if err != nil {
 		return nil, errors.Wrap(err, "Unable to read client secret file")
 	}
