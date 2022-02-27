@@ -17,17 +17,17 @@ type GoogleSheetClient struct {
 	spreadSheetID string
 }
 
-func NewGoogleSheetClient(apiKey, spreadSheetID string) (*GoogleSheetClient, error) {
+func NewGoogleSheetClient() (*GoogleSheetClient, error) {
 	svc, err := sheets.NewService(
 		context.Background(),
-		option.WithAPIKey(apiKey),
+		option.WithAPIKey(os.Getenv("SHEETS_API_KEY")),
 	)
 	if err != nil {
 		return nil, errors.Wrap(err, "error when google sheets new service")
 	}
 
 	return &GoogleSheetClient{
-		spreadSheetID: spreadSheetID,
+		spreadSheetID: os.Getenv("SPREADSHEET_ID"),
 		Trie:          InitTrie(),
 		svc:           svc,
 	}, nil

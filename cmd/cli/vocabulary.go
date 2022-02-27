@@ -11,12 +11,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var isGoogleSheetClientEnabled bool
-var prefix string
-
 type VocabularyCommandRunner struct {
-	Prefix string
-	Client vocabulary.Client
+	Prefix                     string
+	IsGoogleSheetClientEnabled bool
+	Client                     vocabulary.Client
+	VocabularyFilePath         string
 }
 
 var vocabularyCmd = &cobra.Command{
@@ -25,28 +24,47 @@ var vocabularyCmd = &cobra.Command{
 	Short:   "This allows you to do prefix search related to predefined vocabulary list",
 	Example: "learn vocabulary --prefix=be",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		prefix, _ := cmd.Flags().GetString("prefix")
+		isGoogleSheetClientEnabled, _ := cmd.Flags().GetBool("googlesheetenabled")
+
 		vcr := VocabularyCommandRunner{
-			Prefix: prefix,
-		}
-		if err := vcr.Validate(); err != nil {
-			return err
-		}
-
-		vocabularyClient, err := createVocabularyClient()
-		if err != nil {
-			return err
-		}
-		vcr.Client = vocabularyClient
-
-		results, err := vcr.Run(cmd.Context())
-		if err != nil {
-			return err
+			Prefix:                     prefix,
+			IsGoogleSheetClientEnabled: isGoogleSheetClientEnabled,
+			VocabularyFilePath:         "./internal/vocabulary/vocabulary.json",
 		}
 
-		vcr.DisplayResults(os.Stdout, results)
-
-		return nil
+		return vcr.Run(cmd.Context(), os.Stdout)
 	},
+}
+
+//nolint:gochecknoinits
+func init() {
+	vocabularyCmd.Flags().StringP("prefix", "p", "", "name of the prefix you search for")
+	vocabularyCmd.Flags().BoolP("googlesheetenabled", "g", false, "get all vocabularies from google sheet api")
+	_ = vocabularyCmd.MarkFlagRequired("prefix")
+
+	rootCmd.AddCommand(vocabularyCmd)
+}
+
+func (vcr *VocabularyCommandRunner) Run(ctx context.Context, writer io.Writer) error {
+	if err := vcr.Validate(); err != nil {
+		return err
+	}
+
+	vocabularyClient, err := vcr.createVocabularyClient()
+	if err != nil {
+		return err
+	}
+	vcr.Client = vocabularyClient
+
+	results, err := vcr.GetSuggests(ctx)
+	if err != nil {
+		return err
+	}
+
+	vcr.DisplayResults(writer, results)
+
+	return nil
 }
 
 func (vcr *VocabularyCommandRunner) Validate() error {
@@ -56,7 +74,7 @@ func (vcr *VocabularyCommandRunner) Validate() error {
 	return nil
 }
 
-func (vcr *VocabularyCommandRunner) Run(ctx context.Context) ([]vocabulary.Vocabulary, error) {
+func (vcr *VocabularyCommandRunner) GetSuggests(ctx context.Context) ([]vocabulary.Vocabulary, error) {
 	results, err := vcr.Client.SuggestWordsByPrefix(ctx, vcr.Prefix)
 	if err != nil {
 		return nil, err
@@ -82,12 +100,9 @@ func (vcr *VocabularyCommandRunner) DisplayResults(writer io.Writer, results []v
 	table.Render()
 }
 
-func createVocabularyClient() (vocabulary.Client, error) {
-	if isGoogleSheetClientEnabled {
-		gsc, err := vocabulary.NewGoogleSheetClient(
-			os.Getenv("SHEETS_API_KEY"),
-			os.Getenv("SPREADSHEET_ID"),
-		)
+func (vcr *VocabularyCommandRunner) createVocabularyClient() (vocabulary.Client, error) {
+	if vcr.IsGoogleSheetClientEnabled {
+		gsc, err := vocabulary.NewGoogleSheetClient()
 		if err != nil {
 			return nil, err
 		}
@@ -97,7 +112,7 @@ func createVocabularyClient() (vocabulary.Client, error) {
 		}
 
 		vocabularies := gsc.TransformGoogleSpreadsheetResponse(spreadsheet)
-		err = gsc.CreateVocabularyFile("./internal/vocabulary/vocabulary.json", vocabularies)
+		err = gsc.CreateVocabularyFile(vcr.VocabularyFilePath, vocabularies)
 		if err != nil {
 			return nil, err
 		}
@@ -105,14 +120,5 @@ func createVocabularyClient() (vocabulary.Client, error) {
 
 		return gsc, nil
 	}
-	return vocabulary.NewLocalFileClient("./internal/vocabulary/vocabulary.json")
-}
-
-//nolint:gochecknoinits
-func init() {
-	vocabularyCmd.Flags().StringVarP(&prefix, "prefix", "p", "", "name of the prefix you search for")
-	vocabularyCmd.Flags().BoolVarP(&isGoogleSheetClientEnabled, "googlesheetenabled", "g", false, "get all vocabularies from google sheet api")
-	_ = vocabularyCmd.MarkFlagRequired("prefix")
-
-	rootCmd.AddCommand(vocabularyCmd)
+	return vocabulary.NewLocalFileClient(vcr.VocabularyFilePath)
 }

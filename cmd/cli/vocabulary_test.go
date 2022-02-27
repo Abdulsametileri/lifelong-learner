@@ -7,11 +7,52 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Abdulsametileri/lifelong-learner/internal/env"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/vocabulary"
 	"github.com/golang/mock/gomock"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 )
+
+func TestVocabularyCommandRunner_Run(t *testing.T) {
+	const vocFilePath = "../../internal/vocabulary/vocabulary.json"
+
+	assertFunc := func(t *testing.T, out string) {
+		assert.True(t, strings.Contains(out, "magic wand"))
+		assert.True(t, strings.Contains(out, "sihirli değnek"))
+		assert.True(t, strings.Contains(out, "make a fuss about"))
+		assert.True(t, strings.Contains(out, "make such a declaration"))
+	}
+
+	t.Run("when google sheet is not enabled", func(t *testing.T) {
+		vcr := VocabularyCommandRunner{
+			Prefix:                     "ma",
+			IsGoogleSheetClientEnabled: false,
+			VocabularyFilePath:         vocFilePath,
+		}
+
+		var buf bytes.Buffer
+		err := vcr.Run(context.Background(), &buf)
+		assert.Nil(t, err)
+
+		assertFunc(t, buf.String())
+	})
+	t.Run("when google sheet is enabled", func(t *testing.T) {
+		env.Parse("../../.env")
+		vcr := VocabularyCommandRunner{
+			Prefix:                     "ma",
+			IsGoogleSheetClientEnabled: true,
+			VocabularyFilePath:         vocFilePath,
+		}
+
+		var buf bytes.Buffer
+		err := vcr.Run(context.Background(), &buf)
+		assert.Nil(t, err)
+
+		assertFunc(t, buf.String())
+	})
+}
 
 func TestVocabularyCommandRunner_Validate(t *testing.T) {
 	t.Run("when related parameters not valid, it should return error", func(t *testing.T) {
@@ -26,7 +67,7 @@ func TestVocabularyCommandRunner_Validate(t *testing.T) {
 	})
 }
 
-func TestVocabularyCommandRunner_Run(t *testing.T) {
+func TestVocabularyCommandRunner_GetSuggests(t *testing.T) {
 	t.Run("when client is failed, it should return error", func(t *testing.T) {
 		mockClient := NewMockClient(gomock.NewController(t))
 
@@ -42,7 +83,7 @@ func TestVocabularyCommandRunner_Run(t *testing.T) {
 			Client: mockClient,
 		}
 
-		_, err := vcr.Run(context.Background())
+		_, err := vcr.GetSuggests(context.Background())
 		assert.Error(t, err)
 	})
 	t.Run("when client work properly, it should return results", func(t *testing.T) {
@@ -66,7 +107,7 @@ func TestVocabularyCommandRunner_Run(t *testing.T) {
 			Client: mockClient,
 		}
 
-		res, err := vcr.Run(context.Background())
+		res, err := vcr.GetSuggests(context.Background())
 		assert.Nil(t, err)
 		assert.Len(t, res, len(ret))
 	})

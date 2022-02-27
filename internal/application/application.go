@@ -5,6 +5,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/Abdulsametileri/lifelong-learner/internal/env"
+
 	"github.com/Abdulsametileri/lifelong-learner/internal/technicalnotes"
 	"github.com/Abdulsametileri/lifelong-learner/pkg/htmlwrapper"
 
@@ -20,6 +22,7 @@ type Application struct {
 }
 
 func New(cfg *config.Config, version string) (*Application, error) {
+	env.Parse(".env")
 	appLogger := createLogger(cfg.LogFormat).With("version", version)
 
 	vClient, err := createVocabularyClient(cfg.Application.IsGoogleSheetClientEnabled)
@@ -78,10 +81,7 @@ func createLogger(logFormat string) log.Logger {
 
 func createVocabularyClient(isGoogleSheetClientEnabled bool) (vocabulary.Client, error) {
 	if isGoogleSheetClientEnabled {
-		googleSheetsAPIClient, err := vocabulary.NewGoogleSheetClient(
-			os.Getenv("SHEETS_API_KEY"),
-			os.Getenv("SPREADSHEET_ID"),
-		)
+		googleSheetsAPIClient, err := vocabulary.NewGoogleSheetClient()
 		return googleSheetsAPIClient, err
 	}
 

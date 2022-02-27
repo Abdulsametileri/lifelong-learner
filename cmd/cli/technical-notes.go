@@ -48,7 +48,7 @@ var technicalNotesCmd = &cobra.Command{
 
 		if isGoogleDocClientEnabled {
 			fmt.Println("Google Doc is enabled")
-			client, err := technicalnotes.NewGoogleDocsClient(os.Getenv("DOC_ID"))
+			client, err := technicalnotes.NewGoogleDocsClient()
 			if err != nil {
 				return err
 			}
