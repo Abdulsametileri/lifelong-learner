@@ -37,18 +37,20 @@ export DOC_ID=1m4LO-...
 ```
 
 # Demo
+ 
+- You can use this project as CLI or HTTP Server. 
 
-# CLI
+## If you want to use as CLI
 
-## Learn CLI With Vocabulary
+### Learn CLI With Vocabulary
 
 [![asciicast](https://asciinema.org/a/469829.svg)](https://asciinema.org/a/469829)
 
-## Learn CLI With Technical Book Notes
+### Learn CLI With Technical Book Notes
 
 [![asciicast](https://asciinema.org/a/470326.svg)](https://asciinema.org/a/470326)
 
-# Vocabulary API
+## If you want to use as API
 
 Example Request with prefix `ma`: `curl localhost:8080/vocabulary/suggest/ma`
 
@@ -84,7 +86,7 @@ Example Response:
 ]
 ```
 
-# Technical Notes API
+## Technical Notes API
 
 Example Request with keyword `scalability`: `curl localhost:8080/technicalnotes/scalability`
 
