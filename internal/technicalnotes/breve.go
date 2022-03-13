@@ -14,8 +14,6 @@ import (
 )
 
 const (
-	indexPath              = "./internal/technicalnotes/notes.breve"
-	dataPath               = "./internal/technicalnotes/transform.json"
 	highlighterName        = "custom"
 	field                  = "paragraph"
 	fragmentHighlighterLen = 1000.0
@@ -24,11 +22,15 @@ const (
 type breveClient struct {
 	index                 bleve.Index
 	StdoutHighlightActive bool
+	IndexFilePath         string
+	DataFilePath          string
 }
 
-func InitBreveClient(stdoutHighlightActive bool) (Searcher, error) {
+func InitBreveClient(indexFilePath, dataFilePath string, stdoutHighlightActive bool) (Searcher, error) {
 	bc := breveClient{
 		StdoutHighlightActive: stdoutHighlightActive,
+		IndexFilePath:         indexFilePath,
+		DataFilePath:          dataFilePath,
 	}
 
 	err := bc.customBraveFragmentFormatter()
@@ -36,7 +38,7 @@ func InitBreveClient(stdoutHighlightActive bool) (Searcher, error) {
 		return nil, errors.WithStack(err)
 	}
 
-	index, err := createIndex()
+	index, err := bc.createIndex()
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -71,6 +73,61 @@ func (b *breveClient) Search(ctx context.Context, keyword string) (SearchRespons
 	return returnResultUsingRawField(res), nil
 }
 
+func (b *breveClient) customBraveFragmentFormatter() error {
+	_, err := bleve.Config.Cache.DefineFragmenter("short", map[string]interface{}{
+		"type": "simple",
+		"size": fragmentHighlighterLen,
+	})
+	if err != nil {
+		return err
+	}
+
+	_, err = bleve.Config.Cache.DefineHighlighter(highlighterName, map[string]interface{}{
+		"type":       "simple",
+		"fragmenter": "short",
+		"formatter":  "ansi",
+	})
+	return err
+}
+
+func (b *breveClient) createIndex() (bleve.Index, error) {
+	mapping := bleve.NewIndexMapping()
+
+	bleveIndex, err := bleve.New(b.IndexFilePath, mapping)
+	if err == bleve.ErrorIndexPathExists {
+		bleveIndex, err = bleve.Open(b.IndexFilePath)
+		if err != nil {
+			return nil, err
+		}
+		return bleveIndex, nil
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	return bleveIndex, nil
+}
+
+func (b *breveClient) indexData() error {
+	file, err := os.ReadFile(b.DataFilePath)
+	if err != nil {
+		return errors.Wrap(err, "error when reading transform file")
+	}
+
+	var notes []Note
+	err = json.Unmarshal(file, &notes)
+	if err != nil {
+		return errors.Wrap(err, "error when unmarshalling notes")
+	}
+	for i, note := range notes {
+		_ = b.index.Index(fmt.Sprint(i), note)
+		fmt.Printf("%d. doc has been indexed\n", i+1)
+	}
+
+	return nil
+}
+
 func returnResultUsingRawField(res *bleve.SearchResult) (searchRes SearchResponse) {
 	searchRes.TotalTime = res.Took
 	searchRes.TotalResult = res.Total
@@ -99,59 +156,4 @@ func returnResultUsingFragments(res *bleve.SearchResult) (searchRes SearchRespon
 	}
 
 	return
-}
-
-func (b *breveClient) customBraveFragmentFormatter() error {
-	_, err := bleve.Config.Cache.DefineFragmenter("short", map[string]interface{}{
-		"type": "simple",
-		"size": fragmentHighlighterLen,
-	})
-	if err != nil {
-		return err
-	}
-
-	_, err = bleve.Config.Cache.DefineHighlighter(highlighterName, map[string]interface{}{
-		"type":       "simple",
-		"fragmenter": "short",
-		"formatter":  "ansi",
-	})
-	return err
-}
-
-func createIndex() (bleve.Index, error) {
-	mapping := bleve.NewIndexMapping()
-
-	bleveIndex, err := bleve.New(indexPath, mapping)
-	if err == bleve.ErrorIndexPathExists {
-		bleveIndex, err = bleve.Open(indexPath)
-		if err != nil {
-			return nil, err
-		}
-		return bleveIndex, nil
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	return bleveIndex, nil
-}
-
-func (b *breveClient) indexData() error {
-	file, err := os.ReadFile(dataPath)
-	if err != nil {
-		return errors.Wrap(err, "error when reading transform file")
-	}
-
-	var notes []Note
-	err = json.Unmarshal(file, &notes)
-	if err != nil {
-		return errors.Wrap(err, "error when unmarshalling notes")
-	}
-	for i, note := range notes {
-		_ = b.index.Index(fmt.Sprint(i), note)
-		fmt.Printf("%d. doc has been indexed\n", i+1)
-	}
-
-	return nil
 }

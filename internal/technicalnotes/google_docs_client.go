@@ -11,12 +11,14 @@ import (
 )
 
 type GoogleDocsClient struct {
-	svc   *docs.Service
-	docID string
+	svc                 *docs.Service
+	docID               string
+	CredentialsFilePath string
+	LocalDataFilePath   string
 }
 
-func NewGoogleDocsClient() (*GoogleDocsClient, error) {
-	b, err := os.ReadFile("./internal/technicalnotes/credentials.json")
+func NewGoogleDocsClient(credentialsFilePath, localDataFilePath string) (*GoogleDocsClient, error) {
+	b, err := os.ReadFile(credentialsFilePath)
 	if err != nil {
 		return nil, errors.Wrap(err, "Unable to read client secret file")
 	}
@@ -32,7 +34,12 @@ func NewGoogleDocsClient() (*GoogleDocsClient, error) {
 		return nil, errors.Wrap(err, "error when initializing google docs service")
 	}
 
-	return &GoogleDocsClient{svc: svc, docID: os.Getenv("DOC_ID")}, nil
+	return &GoogleDocsClient{
+		svc:                 svc,
+		docID:               os.Getenv("DOC_ID"),
+		CredentialsFilePath: credentialsFilePath,
+		LocalDataFilePath:   localDataFilePath,
+	}, nil
 }
 
 func (gdc *GoogleDocsClient) GetDocumentAndWriteResultToFile() error {
@@ -56,5 +63,5 @@ func (gdc *GoogleDocsClient) CreateLocalDataFile(doc *docs.Document) error {
 	if err != nil {
 		return err
 	}
-	return createLocalDataFile(dataPath, transformed)
+	return createLocalDataFile(gdc.LocalDataFilePath, transformed)
 }

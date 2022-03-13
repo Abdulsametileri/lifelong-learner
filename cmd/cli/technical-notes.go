@@ -13,17 +13,19 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var keyword string
-var isGoogleDocClientEnabled bool
-
 type Client interface {
 	GetDocumentAndWriteResultToFile() error
 }
 
 type TechnicalNoteCommandRunner struct {
-	GoogleClient Client
-	Searcher     technicalnotes.Searcher
-	Keyword      string
+	GoogleClient                    Client
+	IsGoogleDocClientEnabled        bool
+	Searcher                        technicalnotes.Searcher
+	Keyword                         string
+	BreveIndexFilePath              string
+	BreveDataFilePath               string
+	GoogleClientCredentialsFilePath string
+	GoogleClientLocalDatFilePath    string
 }
 
 var technicalNotesCmd = &cobra.Command{
@@ -32,56 +34,80 @@ var technicalNotesCmd = &cobra.Command{
 	Short:   "This allows you to do fulltextsearch within specified document",
 	Example: "learn technical-notes --keyword=scalability",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		keyword, _ := cmd.Flags().GetString("keyword")
+		IsGoogleDocClientEnabled, _ := cmd.Flags().GetBool("googledocenabled")
+
 		tncr := TechnicalNoteCommandRunner{
-			Keyword: keyword,
+			Keyword:                         keyword,
+			IsGoogleDocClientEnabled:        IsGoogleDocClientEnabled,
+			BreveIndexFilePath:              "./internal/technicalnotes/notes.breve",
+			BreveDataFilePath:               "./internal/technicalnotes/transform.json",
+			GoogleClientCredentialsFilePath: "./internal/technicalnotes/credentials.json",
+			GoogleClientLocalDatFilePath:    "./internal/technicalnotes/transform.json",
 		}
 
-		if err := tncr.Validate(); err != nil {
-			return err
-		}
-
-		breveSearch, err := technicalnotes.InitBreveClient(true)
-		if err != nil {
-			return err
-		}
-		tncr.Searcher = breveSearch
-
-		if isGoogleDocClientEnabled {
-			fmt.Println("Google Doc is enabled")
-			client, err := technicalnotes.NewGoogleDocsClient()
-			if err != nil {
-				return err
-			}
-			tncr.GoogleClient = client
-			err = tncr.GoogleClient.GetDocumentAndWriteResultToFile()
-			if err != nil {
-				return err
-			}
-			err = tncr.Searcher.RefleshIndex()
-			if err != nil {
-				return err
-			}
-		}
-
-		searchRes, err := tncr.Run(cmd.Context())
-		if err != nil {
-			return err
-		}
-
-		tncr.DisplayResults(os.Stdout, searchRes)
-
-		return nil
+		return tncr.Run(cmd.Context(), os.Stdout)
 	},
+}
+
+//nolint:gochecknoinits
+func init() {
+	technicalNotesCmd.Flags().StringP("keyword", "k", "", "The keyword which you wanna search within documents")
+	technicalNotesCmd.Flags().BoolP("googledocenabled", "g", false, "get all notes from google docs api")
+
+	_ = technicalNotesCmd.MarkFlagRequired("keyword")
+
+	rootCmd.AddCommand(technicalNotesCmd)
+}
+
+func (tncr *TechnicalNoteCommandRunner) Run(ctx context.Context, writer io.Writer) error {
+	if err := tncr.Validate(); err != nil {
+		return err
+	}
+	breveSearch, err := technicalnotes.InitBreveClient(tncr.BreveIndexFilePath, tncr.BreveDataFilePath, true)
+	if err != nil {
+		return err
+	}
+	tncr.Searcher = breveSearch
+
+	if tncr.IsGoogleDocClientEnabled {
+		fmt.Println("Google Doc is enabled")
+		client, err := technicalnotes.NewGoogleDocsClient(
+			tncr.GoogleClientCredentialsFilePath,
+			tncr.GoogleClientLocalDatFilePath,
+		)
+		if err != nil {
+			return err
+		}
+		tncr.GoogleClient = client
+		err = tncr.GoogleClient.GetDocumentAndWriteResultToFile() //TODO: index olayları
+		if err != nil {
+			return err
+		}
+		err = tncr.Searcher.RefleshIndex()
+		if err != nil {
+			return err
+		}
+	}
+
+	searchRes, err := tncr.Search(ctx)
+	if err != nil {
+		return err
+	}
+
+	tncr.DisplayResults(writer, searchRes)
+
+	return nil
 }
 
 func (tncr *TechnicalNoteCommandRunner) Validate() error {
 	if tncr.Keyword == "" {
-		return errors.New("keyword flg cannot be empty")
+		return errors.New("keyword flag cannot be empty")
 	}
 	return nil
 }
 
-func (tncr *TechnicalNoteCommandRunner) Run(ctx context.Context) (*technicalnotes.SearchResponse, error) {
+func (tncr *TechnicalNoteCommandRunner) Search(ctx context.Context) (*technicalnotes.SearchResponse, error) {
 	searchRes, err := tncr.Searcher.Search(ctx, tncr.Keyword)
 	if err != nil {
 		return nil, err
@@ -110,14 +136,4 @@ func (tncr *TechnicalNoteCommandRunner) DisplayResults(writer io.Writer, searchR
 	}
 
 	table.Render()
-}
-
-//nolint:gochecknoinits
-func init() {
-	technicalNotesCmd.Flags().StringVarP(&keyword, "keyword", "k", "", "The keyword which you wanna search within documents")
-	technicalNotesCmd.Flags().BoolVarP(&isGoogleDocClientEnabled, "googledocenabled", "g", false, "get all notes from google docs api")
-
-	_ = technicalNotesCmd.MarkFlagRequired("keyword")
-
-	rootCmd.AddCommand(technicalNotesCmd)
 }

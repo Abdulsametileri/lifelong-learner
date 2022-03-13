@@ -13,6 +13,29 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
+	assertFunc := func(t *testing.T, out string) {
+		assert.True(t, strings.Contains(out, "shards are often used to"))
+		assert.True(t, strings.Contains(out, "algorithms rely on a quorum"))
+		assert.True(t, strings.Contains(out, "one of the most important abstractions for"))
+	}
+
+	const keyword = "distributed"
+
+	t.Run("when google doc is not enabled", func(t *testing.T) {
+		tncr := TechnicalNoteCommandRunner{
+			IsGoogleDocClientEnabled: false,
+			Keyword:                  keyword,
+			BreveIndexFilePath:       "../../internal/technicalnotes/notes.breve",
+			BreveDataFilePath:        "../../internal/technicalnotes/transform.json",
+		}
+		var buf bytes.Buffer
+		err := tncr.Run(context.Background(), &buf)
+		assert.Nil(t, err)
+		assertFunc(t, buf.String())
+	})
+}
+
 func TestTechnicalNoteCommandRunner_Validate(t *testing.T) {
 	t.Run("when related parameters not valid, it should return error", func(t *testing.T) {
 		tncr := TechnicalNoteCommandRunner{Keyword: ""}
@@ -26,7 +49,7 @@ func TestTechnicalNoteCommandRunner_Validate(t *testing.T) {
 	})
 }
 
-func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
+func TestTechnicalNoteCommandRunner_Search(t *testing.T) {
 	const searchTerm = "scalability"
 	t.Run("when searcher has problem, it should return error", func(t *testing.T) {
 		search := NewMockSearcher(gomock.NewController(t))
@@ -36,7 +59,7 @@ func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
 			Return(technicalnotes.SearchResponse{}, errors.New("error occurred")).
 			Times(1)
 		tncr := TechnicalNoteCommandRunner{Searcher: search, Keyword: searchTerm}
-		_, err := tncr.Run(context.Background())
+		_, err := tncr.Search(context.Background())
 		assert.Error(t, err)
 	})
 	t.Run("when searcher works properly, it should return correct response", func(t *testing.T) {
@@ -47,7 +70,7 @@ func TestTechnicalNoteCommandRunner_Run(t *testing.T) {
 			Return(technicalnotes.SearchResponse{TotalResult: 10}, nil).
 			Times(1)
 		tncr := TechnicalNoteCommandRunner{Searcher: search, Keyword: searchTerm}
-		res, err := tncr.Run(context.Background())
+		res, err := tncr.Search(context.Background())
 		assert.Nil(t, err)
 		assert.Equal(t, uint64(10), res.TotalResult)
 	})
