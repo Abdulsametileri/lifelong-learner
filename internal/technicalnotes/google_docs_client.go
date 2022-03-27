@@ -3,6 +3,7 @@ package technicalnotes
 import (
 	"context"
 	"os"
+	"strings"
 
 	"github.com/pkg/errors"
 	"golang.org/x/oauth2/google"
@@ -11,10 +12,11 @@ import (
 )
 
 type GoogleDocsClient struct {
-	svc                 *docs.Service
-	docID               string
-	CredentialsFilePath string
-	LocalDataFilePath   string
+	svc                        *docs.Service
+	docID                      string
+	CredentialsFilePath        string
+	LocalParagraphDataFilePath string
+	LocalMainTitleDataFilePath string
 }
 
 func NewGoogleDocsClient(credentialsFilePath, localDataFilePath string) (*GoogleDocsClient, error) {
@@ -35,19 +37,12 @@ func NewGoogleDocsClient(credentialsFilePath, localDataFilePath string) (*Google
 	}
 
 	return &GoogleDocsClient{
-		svc:                 svc,
-		docID:               os.Getenv("DOC_ID"),
-		CredentialsFilePath: credentialsFilePath,
-		LocalDataFilePath:   localDataFilePath,
+		svc:                        svc,
+		docID:                      os.Getenv("DOC_ID"),
+		CredentialsFilePath:        credentialsFilePath,
+		LocalParagraphDataFilePath: localDataFilePath,
+		LocalMainTitleDataFilePath: strings.Replace(localDataFilePath, "transform.json", "main-title.json", 1),
 	}, nil
-}
-
-func (gdc *GoogleDocsClient) GetDocumentAndWriteResultToFile() error {
-	doc, err := gdc.GetDocument()
-	if err != nil {
-		return err
-	}
-	return gdc.CreateLocalDataFile(doc)
 }
 
 func (gdc *GoogleDocsClient) GetDocument() (*docs.Document, error) {
@@ -58,10 +53,29 @@ func (gdc *GoogleDocsClient) GetDocument() (*docs.Document, error) {
 	return doc, nil
 }
 
-func (gdc *GoogleDocsClient) CreateLocalDataFile(doc *docs.Document) error {
+func (gdc *GoogleDocsClient) GetDocumentAndTransformResponse() (Document, error) {
+	doc, err := gdc.GetDocument()
+	if err != nil {
+		return Document{}, err
+	}
+
 	transformed, err := transformResponse(doc)
+	if err != nil {
+		return Document{}, err
+	}
+
+	return transformed, nil
+}
+
+func (gdc *GoogleDocsClient) GetDocumentAndWriteResultsToFile() error {
+	transformed, err := gdc.GetDocumentAndTransformResponse()
 	if err != nil {
 		return err
 	}
-	return createLocalDataFile(gdc.LocalDataFilePath, transformed)
+
+	err = createLocalFileWithSpecifiedData(gdc.LocalMainTitleDataFilePath, transformed.MainTitles)
+	if err != nil {
+		return err
+	}
+	return createLocalFileWithSpecifiedData(gdc.LocalParagraphDataFilePath, transformed.Notes)
 }

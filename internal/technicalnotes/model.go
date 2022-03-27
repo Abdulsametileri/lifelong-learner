@@ -28,6 +28,11 @@ type Note struct {
 	Paragraph string `json:"paragraph"`
 }
 
+type Document struct {
+	MainTitles []string `json:"mainTitles"`
+	Notes      []Note   `json:"notes"`
+}
+
 type SearchResponse struct {
 	TotalTime   time.Duration `json:"totalTime"`
 	TotalResult uint64        `json:"totalResult"`

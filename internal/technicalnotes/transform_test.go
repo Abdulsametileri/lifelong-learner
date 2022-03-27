@@ -23,8 +23,8 @@ func Test_TransformResponse(t *testing.T) {
 
 		response, err := transformResponse(doc)
 		assert.Nil(t, err)
-		assert.Len(t, response, 1)
-		assert.Equal(t, response[0].Paragraph, "Send a message to another process, to be handled asynchronously (stream processing)")
+		assert.Len(t, response.Notes, 1)
+		assert.Equal(t, response.Notes[0].Paragraph, "Send a message to another process, to be handled asynchronously (stream processing)")
 	})
 }
 func Test_CreateLocalDataFile(t *testing.T) {
@@ -33,7 +33,7 @@ func Test_CreateLocalDataFile(t *testing.T) {
 		{Paragraph: "Sentence 2"},
 		{Paragraph: "Sentence 3"},
 	}
-	err := createLocalDataFile("/tmp/testtransform.json", tr)
+	err := createLocalFileWithSpecifiedData("/tmp/testtransform.json", tr)
 	assert.Nil(t, err)
 	if err == nil {
 		os.Remove("/tmp/testtransform.json")

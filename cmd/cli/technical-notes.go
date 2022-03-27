@@ -14,18 +14,18 @@ import (
 )
 
 type Client interface {
-	GetDocumentAndWriteResultToFile() error
+	GetDocumentAndWriteResultsToFile() error
 }
 
 type TechnicalNoteCommandRunner struct {
-	GoogleClient                    Client
-	IsGoogleDocClientEnabled        bool
-	Searcher                        technicalnotes.Searcher
-	Keyword                         string
-	BreveIndexFilePath              string
-	BreveDataFilePath               string
-	GoogleClientCredentialsFilePath string
-	GoogleClientLocalDatFilePath    string
+	GoogleClient                            Client
+	IsGoogleDocClientEnabled                bool
+	Searcher                                technicalnotes.Searcher
+	Keyword                                 string
+	BreveIndexFilePath                      string
+	BreveDataFilePath                       string
+	GoogleClientCredentialsFilePath         string
+	GoogleClientLocalParagpraphDataFilePath string
 }
 
 var technicalNotesCmd = &cobra.Command{
@@ -38,12 +38,12 @@ var technicalNotesCmd = &cobra.Command{
 		IsGoogleDocClientEnabled, _ := cmd.Flags().GetBool("googledocenabled")
 
 		tncr := TechnicalNoteCommandRunner{
-			Keyword:                         keyword,
-			IsGoogleDocClientEnabled:        IsGoogleDocClientEnabled,
-			BreveIndexFilePath:              "./internal/technicalnotes/notes.breve",
-			BreveDataFilePath:               "./internal/technicalnotes/transform.json",
-			GoogleClientCredentialsFilePath: "./internal/technicalnotes/credentials.json",
-			GoogleClientLocalDatFilePath:    "./internal/technicalnotes/transform.json",
+			Keyword:                                 keyword,
+			IsGoogleDocClientEnabled:                IsGoogleDocClientEnabled,
+			BreveIndexFilePath:                      "./internal/technicalnotes/notes.breve",
+			BreveDataFilePath:                       "./internal/technicalnotes/transform.json",
+			GoogleClientCredentialsFilePath:         "./internal/technicalnotes/credentials.json",
+			GoogleClientLocalParagpraphDataFilePath: "./internal/technicalnotes/transform.json",
 		}
 
 		return tncr.Run(cmd.Context(), os.Stdout)
@@ -74,13 +74,13 @@ func (tncr *TechnicalNoteCommandRunner) Run(ctx context.Context, writer io.Write
 		fmt.Println("Google Doc is enabled")
 		client, err := technicalnotes.NewGoogleDocsClient(
 			tncr.GoogleClientCredentialsFilePath,
-			tncr.GoogleClientLocalDatFilePath,
+			tncr.GoogleClientLocalParagpraphDataFilePath,
 		)
 		if err != nil {
 			return err
 		}
 		tncr.GoogleClient = client
-		err = tncr.GoogleClient.GetDocumentAndWriteResultToFile() //TODO: index olayları
+		err = tncr.GoogleClient.GetDocumentAndWriteResultsToFile()
 		if err != nil {
 			return err
 		}

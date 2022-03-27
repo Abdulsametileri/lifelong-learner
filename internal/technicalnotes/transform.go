@@ -9,18 +9,19 @@ import (
 	"google.golang.org/api/docs/v1"
 )
 
-func transformResponse(doc *docs.Document) ([]Note, error) {
+func transformResponse(doc *docs.Document) (Document, error) {
 	docBytes, err := doc.Body.MarshalJSON()
 	if err != nil {
-		return nil, errors.Wrap(err, "error when marshaling doc body")
+		return Document{}, errors.Wrap(err, "error when marshaling doc body")
 	}
 	response := GoogleDocResponse{}
 	err = json.Unmarshal(docBytes, &response)
 	if err != nil {
-		return nil, errors.Wrap(err, "error when unmarshaling the transform response")
+		return Document{}, errors.Wrap(err, "error when unmarshaling the transform response")
 	}
 
-	transform := make([]Note, 0, len(response.Content))
+	notes := make([]Note, 0, len(response.Content))
+	mainTitles := make([]string, 0)
 
 	for _, r := range response.Content {
 		if r.Paragraph.Elements == nil {
@@ -39,18 +40,22 @@ func transformResponse(doc *docs.Document) ([]Note, error) {
 			continue
 		}
 		if style == PTITLE {
+			mainTitles = append(mainTitles, content)
 			continue
 		}
 
-		transform = append(transform, Note{
+		notes = append(notes, Note{
 			Paragraph: content,
 		})
 	}
 
-	return transform, nil
+	return Document{
+		MainTitles: mainTitles,
+		Notes:      notes,
+	}, nil
 }
 
-func createLocalDataFile(dataFilePath string, tr []Note) error {
+func createLocalFileWithSpecifiedData(dataFilePath string, tr interface{}) error {
 	docBytes, err := json.Marshal(&tr)
 	if err != nil {
 		return errors.Wrap(err, "error marshaling doc")

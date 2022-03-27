@@ -109,9 +109,8 @@ Example Response:
 
 ### TODO
 
-- [x] Add vocabulary module more tests
-- [ ] Integrate frontend and deploy heroku
-- [x] Pre-commit
+- [ ] Add Repeat Planning on Technical Book Notes
+- [ ] Add Technical Patterns Module
 - [ ] Pipeline (test, lint steps)
 - [ ] Integration Test
 
